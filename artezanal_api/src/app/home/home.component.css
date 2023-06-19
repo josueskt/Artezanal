@@ -1,0 +1,70 @@
+.login{
+    display: inline-block;
+    padding-right: 5px !important;
+}
+.login-text{
+margin: 0;
+}
+a{ text-decoration: none}
+.rut>h1{
+	margin: 0;
+	
+}
+.rut{
+	margin-top: 10px;
+	border-radius: 5px;
+	border: solid 4px rgb(0, 0, 0);
+}
+.rutas{
+	
+	margin: 0 25px;
+}
+
+.form-inline {
+	display: inline-block;
+}
+
+.inf-ruta {
+	margin: 0;
+	padding: 5px;
+}
+
+.imagen-ruta{
+	border: solid 4px black !important;
+
+}
+@media (min-width: 1200px){
+	.form-inline .input-group {
+		width: 300px;
+		margin-left: 30px;
+
+
+	}
+
+	.ruta{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media (max-width: 1199px){
+	.imagen-ruta{
+		max-width: 400px;
+		margin: auto;
+	}
+	.form-inline {
+		display: block;
+		margin-bottom: 10px;
+	}
+	.input-group {
+		width: 100%;
+	}
+}
+
+.ruta{
+    background-color: rgb(220, 162, 85);
+	
+}
+
+.inf-ruta{
+ padding: 5%;
+}

@@ -8,7 +8,7 @@ margin: 0;
 a{ text-decoration: none}
 .rut>h1{
 	margin: 0;
-	
+
 }
 .rut{
 	margin-top: 10px;
@@ -16,7 +16,7 @@ a{ text-decoration: none}
 	border: solid 4px rgb(0, 0, 0);
 }
 .rutas{
-	
+
 	margin: 0 25px;
 }
 
@@ -30,8 +30,8 @@ a{ text-decoration: none}
 	margin: 0;
 	padding: 5px;
 }
-.navbar {		
-    background-image:url(../../img/asdsadsad.png) ;
+.navbar {
+    background-image:url(../../assets/img/asdsadsad.png) ;
 background-repeat: no-repeat;
 background-size: cover;
 
@@ -60,7 +60,7 @@ background-size: cover;
 }
 .search-box {
 	position: relative;
-}	
+}
 .search-box input {
 	box-shadow: none;
 	padding-right: 35px;
@@ -102,7 +102,7 @@ background-size: cover;
 }
 .navbar .dropdown-menu a:hover, .navbar .dropdown-menu a:active {
 	color: #333;
-}	
+}
 .navbar .dropdown-item .material-icons {
 	font-size: 21px;
 	line-height: 16px;
@@ -136,7 +136,7 @@ background-size: cover;
 }
 .navbar a.messages .badge {
 	margin-left: -4px;
-}	
+}
 .navbar .active a, .navbar .active a:hover, .navbar .active a:focus {
 	background: transparent !important;
 }
@@ -169,7 +169,7 @@ background-size: cover;
 
 .ruta{
     background-color: rgb(220, 162, 85);
-	
+
 }
 
 .inf-ruta{

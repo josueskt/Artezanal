@@ -15,10 +15,7 @@ a{ text-decoration: none}
 	border-radius: 5px;
 	border: solid 4px rgb(0, 0, 0);
 }
-.rutas{
-	
-	margin: 0 25px;
-}
+
 
 .form-inline {
 	display: inline-block;
@@ -45,8 +42,16 @@ a{ text-decoration: none}
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 	}
+	.rutas{
+	
+		margin: 0 150px;
+	}
 }
 @media (max-width: 1199px){
+	.rutas{
+	
+		margin: 0 5px;
+	}
 	.imagen-ruta{
 		max-width: 400px;
 		margin: auto;

@@ -1,6 +1,6 @@
-<body>
+<body><img class="bg-warning" src="../../../src/img/lgo.png" width="" alt="asdsad">
 	<nav class="navbar navbar-expand-xl navbar-light ">
-		<a href="#" class="navbar-brand"><img src="./img/lgo.png" width="200px" alt=""></a>
+		<a href="#" class="navbar-brand"><img class="bg-warning" src="../../../src/img/lgo.png" width="" alt="asdsad"></a>
 		<button type="button" class="navbar-toggler bg-white" data-toggle="collapse" data-target="#navbarCollapse">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -24,7 +24,12 @@
 			<div class="navbar-nav ml-auto">
 
 				<div class="nav-item dropdown">
-					<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action text-white"><img
+					<div  *ngIf="!iniciado ">
+						<a href=""> <button class=" btn btn-secondary me-3 "  value="sign up">sign up</button></a>
+						<a href=""> <button class="btn btn-dark" value="sign In">sign In</button></a>
+					</div>
+					<div *ngIf="iniciado ">
+						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action text-white"><img
 							src='{{user_image}}'
 							class="avatar" alt="Avatar"> {{user_name}} </a>
 					<div class="dropdown-menu">
@@ -34,6 +39,10 @@
 						<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
 					</div>
+					</div>
+					<!--
+					
+					-->
 				</div>
 			</div>
 		</div>

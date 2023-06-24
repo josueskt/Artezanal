@@ -1,0 +1,195 @@
+:root {
+  --background-color: #f0f0f0;
+  --font-main: 'Roboto', sans-serif;
+  --primary-color: #5DADE2;
+  --primary-color-hover: #3498DB;
+  --secondary-color: #BDC3C7;
+  --secondary-color-hover: #979A9A;
+  --border-color: #D5D8DC;
+  --white: #ffffff;
+  --black-color: rgba(0, 0, 0, 0.6);
+  --border-radius: 6px;
+  --box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+  --transition: all 0.5s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--background-color) linear-gradient(45deg, #2BC0E4 10%, #EAECC6 90%) fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;  /* Agrega esta línea */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://dam.muyinteresante.com.mx/wp-content/uploads/2020/04/por-que-personas-odian-sabor-cerveza.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(8px);  /* Agrega esta línea */
+  z-index: -1;
+}
+
+
+.form-container {
+  max-width: 500px;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  opacity: 0.95;
+}
+
+.form-container:hover {
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-field {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: var(--black-color);
+  letter-spacing: 1px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+textarea {
+  height: 80px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  transition: var(--transition);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: var(--primary-color-hover);
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+  transform: scale(1.02);
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 5px 10px;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  transition: var(--transition);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  background-color: var(--secondary-color-hover);
+  box-shadow: 3px 3px 7px rgba(0,0,0,0.2);
+  transform: scale(1.02);
+}
+.image-container {
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  margin-left: 20px;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .form-row {
+      flex-direction: row;
+  }
+
+  .form-field {
+      margin-right: 20px;
+  }
+
+  .form-field:last-child {
+      margin-right: 0;
+  }
+}

@@ -1,0 +1,54 @@
+<div class="content-container">
+  <div class="form-container">
+      <h2>Agregar Ruta</h2>
+      <form [formGroup]="routeForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+              <div class="form-field">
+                  <label for="route-name">Nombre de la Ruta</label>
+                  <input type="text" formControlName="routeName" required>
+              </div>
+              <div class="form-field">
+                  <label for="route-distance">Distancia (km)</label>
+                  <input type="number" formControlName="routeDistance" required>
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-field">
+                  <label for="route-difficulty">Dificultad</label>
+                  <select formControlName="routeDifficulty" required>
+                      <option value="" disabled selected>Seleccionar</option>
+                      <option value="Fácil">Facil</option>
+                      <option value="Moderada">Moderada</option>
+                      <option value="Difícil">Dificil</option>
+                  </select>
+              </div>
+              <div class="form-field">
+                  <label for="route-description">Descripcion</label>
+                  <textarea formControlName="routeDescription" required></textarea>
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-field">
+                  <label for="route-image">Imagen de la Ruta</label>
+                  <input type="file" (change)="onImageChange($event)" accept="image/*" required>
+              </div>
+          </div>
+          <div class="form-row">
+              <button type="submit" class="btn-add">Agregar Ruta</button>
+          </div>
+      </form>
+      <div *ngFor="let route of routes; let i = index">
+          <div class="route-item">
+              <h3>{{route.routeName}}</h3>
+              <p>Distancia: {{route.routeDistance}} km</p>
+              <p>Dificultad: {{route.routeDifficulty}}</p>
+              <p>{{route.routeDescription}}</p>
+              <button class="btn-edit">Editar</button>
+              <button class="btn-delete" (click)="deleteRoute(i)">Eliminar</button>
+          </div>
+      </div>
+  </div>
+  <div class="image-container">
+      <img [src]="imagePath" alt="Imagen de la Ruta">
+  </div>
+</div>

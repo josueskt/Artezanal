@@ -1,0 +1,56 @@
+<div class="invoice-box">
+  <h1>Factura</h1>
+  <hr>
+  <div class="invoice-header">
+      <div>
+          <h2>Your Company</h2>
+          <p>12345 Street Rd.<br>
+          City, State, 12345<br>
+          your-email@example.com
+          </p>
+      </div>
+      <div>
+          <h2>Cliente</h2>
+          <p>Cliente Nombre<br>
+          54321 Street Rd.<br>
+          City, State, 54321
+          </p>
+      </div>
+  </div>
+  <table>
+      <thead>
+          <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Total</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Producto 1</td>
+              <td>2</td>
+              <td>$100</td>
+              <td>$200</td>
+          </tr>
+          <!-- Aquí podrías usar *ngFor para generar filas de productos dinámicamente -->
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="3">Subtotal</td>
+              <td>$200</td>
+          </tr>
+          <tr>
+              <td colspan="3">Impuesto (5%)</td>
+              <td>$10</td>
+          </tr>
+          <tr>
+              <td colspan="3">Total</td>
+              <td>$210</td>
+          </tr>
+      </tfoot>
+  </table>
+  <div class="download-btn">
+      <button (click)="printInvoice()">Descargar Factura</button>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<!-- Formulario de registro -->
+<h1 class="titulo_rutas"> RESERVA</h1>
+<br>
+<div class="container" *ngFor="let reservation of reservations; let i = index">
+  <form [formGroup]="reservation">
+    <div class="form-group">
+        <label for="input1">Fecha de Salida:</label>
+        <input type="date" class="form-control" formControlName="departureDate">
+      </div>
+    <div class="form-group">
+      <label for="input2">Nombre del Conductor:</label>
+      <input type="text" class="form-control" formControlName="driverName">
+    </div>
+    <div class="form-group">
+      <label for="input3">Numero de Ruta:</label>
+      <input type="text" class="form-control" formControlName="routeNumber">
+    </div>
+    <div class="form-group">
+      <label for="input4">Numero de Buceta:</label>
+      <input type="text" class="form-control" formControlName="busNumber">
+    </div>
+    <div class="form-group">
+      <label for="input5">Pasajeros:</label>
+      <select class="form-control" formControlName="passenger">
+        <option value="categoria1">Pasajero 1</option>
+        <option value="categoria2">Pasajero 2</option>
+        <option value="categoria3">Pasajero 3</option>
+      </select>
+    </div>
+  </form>
+</div>
+

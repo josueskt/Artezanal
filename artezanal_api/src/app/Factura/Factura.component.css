@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.invoice-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 30px 0;
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.invoice-header h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.invoice-header p {
+  margin: 0;
+  color: #666;
+}
+
+table {
+  width: 100%;
+  margin-top: 30px;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+table thead th {
+  padding: 12px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid #ddd;
+}
+
+table tbody tr td {
+  padding: 12px;
+  color: #333;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tfoot tr td {
+  padding: 12px;
+  color: #333;
+  font-weight: bold;
+  border-top: 2px solid #ddd;
+}
+
+.download-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+button {
+  padding: 12px 24px;
+  color: #fff;
+  background-color: #5DADE2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+@media screen and (max-width: 768px) {
+  .invoice-box {
+      padding: 15px;
+  }
+  .invoice-header {
+      flex-direction: column;
+  }
+
+  table {
+      font-size: 14px;
+  }
+}

@@ -1,0 +1,89 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #B06AB3, #4568DC);
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header {
+  text-align: center;
+  padding: 20px;
+  font-size: 2em;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-top: 20px;
+}
+.offer-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 10px;
+  width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.offer-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(255,215,0, 0.6);
+}
+h1, h2, p {
+  margin: 0;
+}
+h2 {
+  color: #FFD700;
+  margin-top: 15px;
+  font-size: 1.5em;
+}
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  background: linear-gradient(45deg, #007BFF, #0056b3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1em;
+}
+button:hover {
+  background-color: #33fa01;
+}
+.offer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.offer-actions {
+  display: flex;
+  gap: 10px;
+}
+.beer-button {
+  background-image: url('https://cdn.icon-icons.com/icons2/1462/PNG/512/047add1_99902.png');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}

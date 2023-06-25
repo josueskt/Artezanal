@@ -1,0 +1,19 @@
+<div class="header">
+  <h1>¡Bienvenido a nuestras ofertas!</h1>
+</div>
+<div class="container">
+  <div class="offer-card" *ngFor="let offer of offers">
+      <img [src]="offer.image" alt="Imagen del producto">
+      <h2>{{ offer.title }}</h2>
+      <div class="offer-info">
+          <p>{{ offer.description }}</p>
+          <p>Precio: {{ offer.price }}</p>
+          <p>Fecha de vencimiento: {{ offer.expirationDate }}</p>
+          <button (click)="editOffer(offer)">Editar</button>
+          <button (click)="deleteOffer(offer)">Eliminar</button>
+      </div>
+  </div>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 20px;">
+  <button class="beer-button"></button>
+</div>

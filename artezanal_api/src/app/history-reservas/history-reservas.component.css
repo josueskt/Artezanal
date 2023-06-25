@@ -1,0 +1,156 @@
+.container{
+  border: 5px solid black;  /* Ancho y color del marco */
+  padding: 20px;  /* Espacio entre el texto y el marco */
+  border-radius: 20px;
+ display:block;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('https://www.namesnack.com/images/Namesnack-nombres-para-empresas-de-cerveza-artesanal-5710x3766-20230523.jpeg?crop=2:1,smart&width=1200&dpr=2') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.titulo_rutas {
+  text-align: center;
+  color: #da1212;
+  font-size: 2em;
+  padding: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.container {
+  border: 5px solid #33ff00;
+  padding: 20px;
+  border-radius: 20px;
+  display: block;
+  margin: 20px auto;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.container:hover {
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 1em;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+.titulo_rutas {
+  text-align: center;
+  color: #007BFF;
+  font-size: 2em;
+  padding: 20px 0;
+}
+
+.container {
+  border: 5px solid #18acf6; /* Ancho y color del marco */
+  padding: 20px; /* Espacio entre el texto y el marco */
+  border-radius: 20px;
+  display: block;
+  margin: 20px auto;
+  max-width: 500px;
+  background: #FFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.form-control:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+.form-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 80vh;
+}
+
+.container {
+  border: 5px solid #18acf6;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  max-width: 300px;
+  background: #FFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s;
+}
+
+.container:hover {
+  transform: scale(1.05);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;  /* Hacemos el texto en negrita */
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  outline: none;
+}

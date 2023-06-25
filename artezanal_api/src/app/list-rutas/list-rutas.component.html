@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Rutas de Viaje</h1>
+  <ul>
+      <li *ngFor="let route of routes">
+          <span class="route-name">{{route.name}}</span>
+          <p class="route-start-destination">Inicio: {{route.start}} - Destino: {{route.end}}</p>
+          <p class="route-description">{{route.description}}</p>
+          <p class="route-info">{{route.info}}</p>
+          <div class="btn-group">
+              <button class="btn btn-edit" (click)="editRoute()">Editar</button>
+              <button class="btn btn-delete" (click)="deleteRoute()">Eliminar</button>
+          </div>
+      </li>
+  </ul>
+  <div class="extra-style">
+      <button class="beer-button"></button>
+  </div>
+</div>

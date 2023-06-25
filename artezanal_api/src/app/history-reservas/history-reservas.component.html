@@ -2,7 +2,7 @@
 <h1 class="titulo_rutas"> RESERVA</h1>
 <br>
 <div class="container" *ngFor="let reservation of reservations; let i = index">
-  <form [formGroup]="reservation">
+  <form>
     <div class="form-group">
         <label for="input1">Fecha de Salida:</label>
         <input type="date" class="form-control" formControlName="departureDate">

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-list-ofertas',
@@ -38,11 +37,11 @@ export class ListOfertasComponent {
   ngOnInit() {
   }
 
-  editOffer(offer) {
+  editOffer() {
     // lógica para editar oferta
   }
 
-  deleteOffer(offer) {
+  deleteOffer() {
     // lógica para eliminar oferta
   }
 

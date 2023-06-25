@@ -19,6 +19,7 @@ import { AddOfertasComponent } from './add-ofertas/add-ofertas.component';
 import { AddRutasComponent } from './add-rutas/add-rutas.component';
 import { FacturaComponent } from './Factura/Factura.component';
 import { LoginComponent } from './login/login.component';
+import { ReservaComponent } from './usuario/reserva/reserva.component';
 
 
 
@@ -27,7 +28,8 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     NavBarComponent,
     HomeComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    ReservaComponent
   ],
   imports: [
     BrowserModule,

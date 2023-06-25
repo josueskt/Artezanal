@@ -1,0 +1,115 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #3498db, #2c3e50);
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  width: 100vw; /* 100% del ancho del viewport */
+  max-width: 960px; /* límite máximo de ancho */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+h1 {
+  text-align: center;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+li:last-child {
+  border-bottom: none;
+}
+.route-name {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+.route-description {
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.route-info {
+  font-size: 0.8em;
+  color: #FFD700;
+}
+.route-start-destination {
+  font-size: 0.8em;
+  color: #f1c40f; /* color dorado */
+  margin-bottom: 10px;
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  width: 150px; /* ajustar según necesidad */
+}
+.btn {
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+.btn-edit {
+  background: #f39c12; /* color naranja */
+  transition: background 0.3s ease;
+}
+.btn-edit:hover {
+  background: #e67e22; /* color naranja oscuro */
+}
+.btn-delete {
+  background: #e74c3c; /* color rojo */
+  transition: background 0.3s ease;
+}
+.btn-delete:hover {
+  background: #c0392b; /* color rojo oscuro */
+}
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  background: linear-gradient(45deg, #007BFF, #0056b3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1em;
+}
+button:hover {
+  background-color: #33fa01;
+}
+.beer-button {
+  background-image: url('https://cdn.icon-icons.com/icons2/1462/PNG/512/047add1_99902.png');
+  background-size: cover;
+  width: 30vw; /* 30% del ancho del viewport */
+  height: 30vw; /* 30% del ancho del viewport */
+  max-width: 100px; /* límite máximo de ancho */
+  max-height: 100px; /* límite máximo de altura */
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.extra-style{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

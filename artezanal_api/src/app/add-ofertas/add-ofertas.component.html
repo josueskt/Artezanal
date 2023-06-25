@@ -1,0 +1,28 @@
+<div class="form-container">
+  <h2>Agregar nueva oferta</h2>
+  <form (ngSubmit)="onSubmit()">
+      <div class="form-row">
+          <div class="image-preview">
+              <img [src]="imagePath" alt="Imagen del producto">
+          </div>
+          <div class="form-fields">
+              <label for="productName">Nombre del Producto</label>
+              <input type="text" formControlName="productName" required>
+
+              <label for="productDescription">Descripción del Producto</label>
+              <textarea formControlName="productDescription" required></textarea>
+
+              <label for="originalPrice">Precio Original</label>
+              <input type="number" formControlName="originalPrice" required>
+
+              <label for="offerPrice">Precio de Oferta</label>
+              <input type="number" formControlName="offerPrice" required>
+
+              <label for="productImage">Imagen del Producto</label>
+              <input type="file" required (change)="onImageChange($event)">
+
+              <button type="submit">Agregar Oferta</button>
+          </div>
+      </div>
+  </form>
+</div>

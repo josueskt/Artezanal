@@ -15,11 +15,13 @@ import { HistoryReservasComponent } from './history-reservas/history-reservas.co
 import { AddOfertasComponent } from './add-ofertas/add-ofertas.component';
 import { AddRutasComponent } from './add-rutas/add-rutas.component';
 import { FacturaComponent } from './Factura/Factura.component';
+import { UsersRegisterComponent } from './users-register/users-register.component';
+import { ListSitiosComponent } from './list-sitios/list-sitios.component';
 
 
 
 @NgModule({
-  declarations: [							
+  declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
@@ -30,7 +32,9 @@ import { FacturaComponent } from './Factura/Factura.component';
       HistoryReservasComponent,
       AddOfertasComponent,
       AddRutasComponent,
-      FacturaComponent
+      FacturaComponent,
+      UsersRegisterComponent,
+      ListSitiosComponent
    ],
   imports: [
     BrowserModule,

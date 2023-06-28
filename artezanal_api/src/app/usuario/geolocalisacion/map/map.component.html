@@ -1,0 +1,21 @@
+
+<google-map  [center]="{ lat: -0.2295, lng: -78.5249 }">
+  <google-map-directions
+  [origin]="rutaPuntos[0]"
+  [waypoints]="rutaPuntos.slice(1, 4)"
+  [destination]="rutaPuntos[4]"
+  [options]="{
+    polylineOptions: {
+      strokeColor: '#FF0000'
+    },
+    markerOptions: {
+      origin: { icon: 'https://th.bing.com/th/id/OIP.-nT9hmlFKtoYz64dLN_gngAAAA?pid=ImgDet&rs=1' },
+      destination: { icon: 'https://th.bing.com/th/id/OIP.-nT9hmlFKtoYz64dLN_gngAAAA?pid=ImgDet&rs=1' },
+      waypoints: { icon: 'https://th.bing.com/th/id/OIP.-nT9hmlFKtoYz64dLN_gngAAAA?pid=ImgDet&rs=1' }
+    }
+  }"
+></google-map-directions>
+
+</google-map>
+
+

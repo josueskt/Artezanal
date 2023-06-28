@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 //INICIO SERVICIOS
@@ -9,17 +9,29 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { GeolocalisacionComponent } from './usuario/geolocalisacion/geolocalisacion.component';
+import { MapComponent } from './usuario/geolocalisacion/map/map.component';
+import { RutasComponent } from './usuario/geolocalisacion/rutas/rutas.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+
+
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     NavBarComponent,
-    HomeComponent
+    HomeComponent,
+    GeolocalisacionComponent,
+    MapComponent,
+    RutasComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GoogleMapsModule
   ],
   providers: [
     CargaJsService

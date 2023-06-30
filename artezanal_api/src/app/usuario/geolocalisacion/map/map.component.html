@@ -1,21 +1,37 @@
+<div class="row" style="background-color: antiquewhite;">
+  <div class="col-sm">
+    <div id="map"></div>
 
-<google-map  [center]="{ lat: -0.2295, lng: -78.5249 }">
-  <google-map-directions
-  [origin]="rutaPuntos[0]"
-  [waypoints]="rutaPuntos.slice(1, 4)"
-  [destination]="rutaPuntos[4]"
-  [options]="{
-    polylineOptions: {
-      strokeColor: '#FF0000'
-    },
-    markerOptions: {
-      origin: { icon: 'https://th.bing.com/th/id/OIP.-nT9hmlFKtoYz64dLN_gngAAAA?pid=ImgDet&rs=1' },
-      destination: { icon: 'https://th.bing.com/th/id/OIP.-nT9hmlFKtoYz64dLN_gngAAAA?pid=ImgDet&rs=1' },
-      waypoints: { icon: 'https://th.bing.com/th/id/OIP.-nT9hmlFKtoYz64dLN_gngAAAA?pid=ImgDet&rs=1' }
-    }
-  }"
-></google-map-directions>
+    <div class="text-center">
+      <h1>Sitios de la ruta</h1>
+    </div>
 
-</google-map>
+    <ul class="bg-dark text-white" id="pointName" *ngIf="selectedPoint">
+      <li>
+        <img src='{{selectedPoint.image}}' width="120px" alt="">
+      </li>
+      <li>
+        <div class="col">{{selectedPoint.name}}</div>
+      </li>
+    </ul>
+  </div>
+  <div class="targeta col-sm">
+    <div class="text-center bg-dark"> <img class=""
+        src="https://th.bing.com/th/id/OIP.PSfZde6J3lxZ_iBQesxBoQAAAA?pid=ImgDet&rs=1" alt=""></div>
+
+    <div>
+      <h3 class="text-center">descripcion</h3>
+
+      <p class="text-star">
+        .asdasdasdasd
+        .asdadsdasd
+      </p>
+    </div>
 
 
+
+
+
+
+
+  </div>

@@ -1,10 +1,12 @@
-import { NgModule, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { LoginComponent } from './login/login.component';
-import { RutasComponent } from './usuario/geolocalisacion/rutas/rutas.component';
+import { MapComponent } from './usuario/geolocalisacion/map/map.component';
+
+
 
 
 const routes : Routes = [
@@ -13,7 +15,7 @@ const routes : Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'nosotros', component: NosotrosComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'rutas', component: RutasComponent},
+  {path: 'rutas', component: MapComponent},
 ];
 
 @NgModule({

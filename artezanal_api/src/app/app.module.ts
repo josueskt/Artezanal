@@ -18,8 +18,13 @@ import { HistoryReservasComponent } from './history-reservas/history-reservas.co
 import { AddOfertasComponent } from './add-ofertas/add-ofertas.component';
 import { AddRutasComponent } from './add-rutas/add-rutas.component';
 import { FacturaComponent } from './Factura/Factura.component';
+<<<<<<< HEAD
 import { LoginComponent } from './login/login.component';
 import { ReservaComponent } from './usuario/reserva/reserva.component';
+=======
+import { UsersRegisterComponent } from './users-register/users-register.component';
+import { ListSitiosComponent } from './list-sitios/list-sitios.component';
+>>>>>>> 63c0964216c3375333e333e03c925b58a84b96e4
 
 
 
@@ -29,8 +34,21 @@ import { ReservaComponent } from './usuario/reserva/reserva.component';
     NavBarComponent,
     HomeComponent,
     NosotrosComponent,
+<<<<<<< HEAD
     ReservaComponent
   ],
+=======
+      InicioAdminComponent,
+      ListOfertasComponent,
+      ListRutasComponent,
+      HistoryReservasComponent,
+      AddOfertasComponent,
+      AddRutasComponent,
+      FacturaComponent,
+      UsersRegisterComponent,
+      ListSitiosComponent
+   ],
+>>>>>>> 63c0964216c3375333e333e03c925b58a84b96e4
   imports: [
     BrowserModule,
     FormsModule,

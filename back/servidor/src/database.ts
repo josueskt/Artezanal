@@ -2,10 +2,10 @@ import { Client } from 'pg';
 
 const connectionData = {
     host: 'localhost',
-    user:'postgres',
+    user:'Artezanal',
     port:5432,
-    password: 'magodeoz100',
-    database:'stivenj'
+    password: '1234',
+    database:'proyect_artesanal'
 };
 
 const client = new Client(connectionData);

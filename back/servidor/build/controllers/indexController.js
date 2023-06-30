@@ -18,7 +18,7 @@ class IndexController {
     index(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const result = yield database_1.default.query('SELECT * FROM usuarios_sj');
+                const result = yield database_1.default.query('SELECT * FROM usuarios.usuarios ');
                 res.json(result.rows);
             }
             catch (error) {

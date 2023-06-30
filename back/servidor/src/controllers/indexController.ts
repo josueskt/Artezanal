@@ -5,7 +5,7 @@ import client from'../database';
 class IndexController {
   async index(req: Request, res: Response) {
     try {
-      const result = await client.query('SELECT * FROM usuarios_sj');
+      const result = await client.query('SELECT * FROM usuarios.usuarios ');
       
       res.json(result.rows);
     } catch (error) {

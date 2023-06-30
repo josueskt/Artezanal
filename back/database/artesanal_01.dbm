@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.0.3" use-changelog="false" last-position="894,301" last-zoom="0.75" max-obj-count="22"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="proyect_artesanal" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="configuraciones" layers="0" rect-visible="true" fill-color="#aaff00">
+	<role name="postgres"/>
+	<comment> <![CDATA[guarda la configuracion de  los intnentos de secion y  dias de reseteo ]]> </comment>
+</schema>
+
+<schema name="usuarios" layers="0" rect-visible="true" fill-color="#d685ff">
+	<role name="postgres"/>
+	<comment> <![CDATA[guarda  todas las tablas referidas a usuario ]]> </comment>
+</schema>
+
+<schema name="a" layers="0" rect-visible="true" fill-color="#e1e1e1">
+	<role name="postgres"/>
+</schema>
+
+<schema name="facturacion" layers="0" rect-visible="true" fill-color="#8caf31">
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene todo el proseso de facturacion ]]> </comment>
+</schema>
+
+<schema name="ruta" layers="0" rect-visible="true" fill-color="#c8a47c">
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene todo el proceso de el enrutado ]]> </comment>
+</schema>
+
+<schema name="pago" layers="0" rect-visible="true" fill-color="#f09987">
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene el proceso de pago ]]> </comment>
+</schema>
+
+<table name="configuracion" layers="0" alias="config" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="configuraciones"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[guarda os datos de configuracion ]]> </comment>
+	<position x="580" y="100"/>
+	<column name="id_config" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[guarda la identificacion de configuracion ]]> </comment>
+	</column>
+	<column name="numer_de_intentos" alias="n_intentos">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[guarda el numero de intentos que tiene el usuario para iniciar sescion ]]> </comment>
+	</column>
+	<column name="dias_cambio_pasword">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[guarda la configuracion en dias de cuando se tiene que cambiar la contraseña ]]> </comment>
+	</column>
+	<column name="tiempo_bloqueo_cuenta">
+		<type name="time" length="0"/>
+		<comment> <![CDATA[guarda el tiempo en que la  la sesion esta bloqueada ]]> </comment>
+	</column>
+	<constraint name="configuracion_pk" type="pk-constr" table="configuraciones.configuracion">
+		<columns names="id_config" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="usuarios" layers="0" alias="users" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="usuarios"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[guarda los datos de el usuario ]]> </comment>
+	<position x="480" y="280"/>
+	<column name="id_user" alias="user" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico para identiicar al usuario]]> </comment>
+	</column>
+	<column name="fk_idioma">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de a tabla idioma ]]> </comment>
+	</column>
+	<column name="fk_rol" alias="rol">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla rol]]> </comment>
+	</column>
+	<column name="nombre" alias="name">
+		<type name="character varying" length="50"/>
+		<comment> <![CDATA[guarda el nombre del usuario]]> </comment>
+	</column>
+	<column name="apellido" alias="last_name">
+		<type name="character varying" length="50"/>
+		<comment> <![CDATA[guarda el apellido del usuario ]]> </comment>
+	</column>
+	<column name="foto" alias="picture">
+		<type name="character varying" length="250"/>
+		<comment> <![CDATA[guarda el nombre  de la imagen del usuario ]]> </comment>
+	</column>
+	<column name="correo">
+		<type name="character varying" length="100"/>
+		<comment> <![CDATA[guarda el direcion dde correo de la persona ]]> </comment>
+	</column>
+	<constraint name="usuarios_pk" type="pk-constr" table="usuarios.usuarios">
+		<columns names="id_user" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="pasword_user" layers="0" alias="contrasea" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="usuarios"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[guarda la contraseña del usuario ]]> </comment>
+	<position x="1180" y="820"/>
+	<column name="id_password" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[id que identifica a la contraseña ]]> </comment>
+	</column>
+	<column name="password">
+		<type name="character varying" length="50"/>
+		<comment> <![CDATA[guarda la contraseña del usuario ]]> </comment>
+	</column>
+	<column name="estado">
+		<type name="boolean" length="0"/>
+		<comment> <![CDATA[buleano que dice si esta activa la contraseña para ser usada en la sesion  o si  esta inactiva como historial de contraseñas usadas por el usuario ]]> </comment>
+	</column>
+	<constraint name="paswords_user_pk" type="pk-constr" table="usuarios.pasword_user">
+		<columns names="id_password" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="historial_contraseñas" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="usuarios"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene a todas las contraseñas de un usuario ]]> </comment>
+	<position x="1160" y="520"/>
+	<column name="id_historial" alias="histori" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico del historial de contraseña ]]> </comment>
+	</column>
+	<column name="fk_user">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla usuarios]]> </comment>
+	</column>
+	<column name="fk_password">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla pasword_user]]> </comment>
+	</column>
+	<constraint name="historial_contraseñas_pk" type="pk-constr" table="usuarios.&quot;historial_contraseñas&quot;">
+		<columns names="id_historial" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="rol" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="usuarios"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[guarda el tipo de rol de el usuario   turista  , conductor , guia ]]> </comment>
+	<position x="1020" y="340"/>
+	<column name="id_rol" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro que identifica al rol ]]> </comment>
+	</column>
+	<column name="nombre" alias="name">
+		<type name="character varying" length="10"/>
+		<comment> <![CDATA[nombre del rol a dar  puede ser turista conductor o guia ]]> </comment>
+	</column>
+	<constraint name="rol_pk" type="pk-constr" table="usuarios.rol">
+		<columns names="id_rol" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="idioma" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="usuarios"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[guarda el idioma del usuario]]> </comment>
+	<position x="160" y="600"/>
+	<column name="id_idioma" alias="idiom" not-null="true">
+		<type name="serial" length="15"/>
+		<comment> <![CDATA[registro unico que identifica al idioma ]]> </comment>
+	</column>
+	<column name="nombre">
+		<type name="character varying" length="50"/>
+		<comment> <![CDATA[guarda el nombre del idioma ]]> </comment>
+	</column>
+	<constraint name="idioma_pk" type="pk-constr" table="usuarios.idioma">
+		<columns names="id_idioma" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="factura" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="facturacion"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene los  datos de la factura ]]> </comment>
+	<position x="1840" y="140"/>
+	<column name="id_factura" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico que identifica a  la factura ]]> </comment>
+	</column>
+	<column name="fk_usuario">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla usuario]]> </comment>
+	</column>
+	<column name="fecha_reserva">
+		<type name="date" length="0"/>
+		<comment> <![CDATA[guarda la fecha de la reserva ]]> </comment>
+	</column>
+	<constraint name="factura_pk" type="pk-constr" table="facturacion.factura">
+		<columns names="id_factura" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="detalle_factura" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="facturacion"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[tabla que fuarda  el detale de la factura ]]> </comment>
+	<position x="2160" y="280"/>
+	<column name="id_detalle" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico de detalle de factura ]]> </comment>
+	</column>
+	<column name="fk_boleto">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla boleto]]> </comment>
+	</column>
+	<column name="fk_fatura">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla factuira]]> </comment>
+	</column>
+	<constraint name="detalle_factura_pk" type="pk-constr" table="facturacion.detalle_factura">
+		<columns names="id_detalle" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="boleto" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="facturacion"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene los datos  del boleto ]]> </comment>
+	<position x="2360" y="40"/>
+	<column name="id_boleto" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico que identifica a el boleto ]]> </comment>
+	</column>
+	<column name="fk_turno">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla turno]]> </comment>
+	</column>
+	<column name="condigo_qr">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[contiene el codigo qr del boleto ]]> </comment>
+	</column>
+	<column name="informacion">
+		<type name="character varying" length="100"/>
+		<comment> <![CDATA[contiene informacion del boleto ]]> </comment>
+	</column>
+	<column name="fecha_creacion">
+		<type name="date" length="0"/>
+		<comment> <![CDATA[contiene la fecha de creacion del boleto ]]> </comment>
+	</column>
+	<constraint name="boleto_pk" type="pk-constr" table="facturacion.boleto">
+		<columns names="id_boleto" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="conductor" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="usuarios"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene datos del conductor]]> </comment>
+	<position x="700" y="660"/>
+	<column name="id_conductor" alias="cont" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico del conductor ]]> </comment>
+	</column>
+	<column name="fk_vehiculo">
+		<type name="character varying" length="10"/>
+		<comment> <![CDATA[llave foranea de la tabla vehiculo]]> </comment>
+	</column>
+	<column name="fk_user">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla users]]> </comment>
+	</column>
+	<constraint name="conductor_pk" type="pk-constr" table="usuarios.conductor">
+		<columns names="id_conductor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vechiculo" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="usuarios"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene las datos de el vehiculo]]> </comment>
+	<position x="720" y="920"/>
+	<column name="id_vehiculo" not-null="true">
+		<type name="character varying" length="10"/>
+		<comment> <![CDATA[matricula del vehiculo]]> </comment>
+	</column>
+	<column name="fk_marca">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla marca ]]> </comment>
+	</column>
+	<column name="numero_asientos">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[contiene el numero de asientos del vehiculo ]]> </comment>
+	</column>
+	<constraint name="vechiculo_pk" type="pk-constr" table="usuarios.vechiculo">
+		<columns names="id_vehiculo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="marca" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="usuarios"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene la marca de vehiculos]]> </comment>
+	<position x="320" y="920"/>
+	<column name="id_marca" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registo unico de marcas ]]> </comment>
+	</column>
+	<column name="nombre">
+		<type name="character varying" length="25"/>
+		<comment> <![CDATA[contiene el nombre de la marca del vehiculo ]]> </comment>
+	</column>
+	<constraint name="marca_pk" type="pk-constr" table="usuarios.marca">
+		<columns names="id_marca" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ruta" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="ruta"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene  la informacion de la ruta ]]> </comment>
+	<position x="1840" y="840"/>
+	<column name="id_ruta" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico que identifica a la ruta ]]> </comment>
+	</column>
+	<column name="fk_lugar_encuentro">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[contiene el ligar del encuentro ]]> </comment>
+	</column>
+	<column name="precio">
+		<type name="decimal" length="0"/>
+		<comment> <![CDATA[cont9iene el precio de la ruta ]]> </comment>
+	</column>
+	<column name="nombre">
+		<type name="character varying" length="50"/>
+		<comment> <![CDATA[contiene el nombre de la ruta ]]> </comment>
+	</column>
+	<column name="duracion">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[contiene la duracion en horas ]]> </comment>
+	</column>
+	<column name="inf_adi">
+		<type name="varchar" length="250"/>
+		<comment> <![CDATA[contiene informacion adicional  de la ruta ]]> </comment>
+	</column>
+	<constraint name="ruta_pk" type="pk-constr" table="ruta.ruta">
+		<columns names="id_ruta" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="detalle_ruta" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="ruta"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene los diferentes lugares que pertenecen a una ruta ]]> </comment>
+	<position x="1920" y="540"/>
+	<column name="id_ruta" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico  que identifica a la ruta ]]> </comment>
+	</column>
+	<column name="fk_ruta">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla ruta ]]> </comment>
+	</column>
+	<column name="fk_sitios">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla sitios ]]> </comment>
+	</column>
+	<constraint name="detalle_ruta_pk" type="pk-constr" table="ruta.detalle_ruta">
+		<columns names="id_ruta" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sitios" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="ruta"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene  los puntos de la ruta ]]> </comment>
+	<position x="2360" y="940"/>
+	<column name="id_siitos" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico  que identifica a la  el sitio ]]> </comment>
+	</column>
+	<column name="latitude">
+		<type name="float" length="0"/>
+		<comment> <![CDATA[guarda la cordenada del google maps del sitio ]]> </comment>
+	</column>
+	<column name="longitud">
+		<type name="float" length="0"/>
+		<comment> <![CDATA[contiene la latitude ]]> </comment>
+	</column>
+	<column name="nombre">
+		<type name="character varying" length="50"/>
+		<comment> <![CDATA[contiene el nombre del local ]]> </comment>
+	</column>
+	<column name="informacion">
+		<type name="character varying" length="100"/>
+		<comment> <![CDATA[contiene informacion varia del local ]]> </comment>
+	</column>
+	<column name="logo">
+		<type name="character varying" length="250"/>
+		<comment> <![CDATA[contiene la imagen de el local ]]> </comment>
+	</column>
+	<constraint name="sitios_pk" type="pk-constr" table="ruta.sitios">
+		<columns names="id_siitos" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="turno" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="ruta"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene los detalls del turno ]]> </comment>
+	<position x="2560" y="640"/>
+	<column name="id_turno" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico del turno]]> </comment>
+	</column>
+	<column name="fk_id_ruta">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la ruta ]]> </comment>
+	</column>
+	<column name="fk_conductor">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[lave foranea de la tabla conductor ]]> </comment>
+	</column>
+	<column name="fecha_salida">
+		<type name="date" length="0"/>
+		<comment> <![CDATA[contiene la fecha de  salida de la ruta ]]> </comment>
+	</column>
+	<column name="numero_asientos">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[contiene el numero de asientos disponibles ]]> </comment>
+	</column>
+	<constraint name="turno_pk" type="pk-constr" table="ruta.turno">
+		<columns names="id_turno" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="detalle_pago" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="pago"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene todos los metodos de pago de  el cliente ]]> </comment>
+	<position x="1320" y="60"/>
+	<column name="id_detalle_p" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico identifica a el detalle ]]> </comment>
+	</column>
+	<column name="fk_factura">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla factura ]]> </comment>
+	</column>
+	<column name="fk_metodo_pago">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la tabla metodo_pago]]> </comment>
+	</column>
+	<constraint name="detalle_pago_pk" type="pk-constr" table="pago.detalle_pago">
+		<columns names="id_detalle_p" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="metodo_pago" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="pago"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[tiene el metodo de pago ]]> </comment>
+	<position x="1000" y="60"/>
+	<column name="id_metodo" not-null="true">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico que identifica al pago ]]> </comment>
+	</column>
+	<column name="nombre">
+		<type name="character varying" length="50"/>
+		<comment> <![CDATA[nombre del metodo de pago ]]> </comment>
+	</column>
+	<constraint name="metodo_pago_pk" type="pk-constr" table="pago.metodo_pago">
+		<columns names="id_metodo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="secion" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="usuarios"/>
+	<role name="postgres"/>
+	<comment> <![CDATA[contiene la secion  del usuario ]]> </comment>
+	<position x="60" y="340"/>
+	<column name="id_secsion">
+		<type name="serial" length="0"/>
+		<comment> <![CDATA[registro unico que identifica a la tabla ]]> </comment>
+	</column>
+	<column name="fk_usuario">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[llave foranea de la  tabla usuario ]]> </comment>
+	</column>
+	<column name="intentos">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[contiene los intnentos fallidos  al ingresar ]]> </comment>
+	</column>
+	<column name="iniciado">
+		<type name="boolean" length="0"/>
+		<comment> <![CDATA[contiene el estado   de inicio de secion ]]> </comment>
+	</column>
+	<column name="dispositivo">
+		<type name="character varying" length="100"/>
+		<comment> <![CDATA[contiene  en nombre del dispositivo conectado a la secion ]]> </comment>
+	</column>
+	<column name="hora_intento">
+		<type name="time" length="0"/>
+		<comment> <![CDATA[guarda la hora de el ultimo intento realizado ]]> </comment>
+	</column>
+</table>
+
+<constraint name="fk_idioma" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.idioma" table="usuarios.usuarios">
+	<columns names="fk_idioma" ref-type="src-columns"/>
+	<columns names="id_idioma" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion  de la tabla usuario y la tabla idioma ]]> </comment>
+</constraint>
+
+<constraint name="fk_rol" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.rol" table="usuarios.usuarios">
+	<columns names="fk_rol" ref-type="src-columns"/>
+	<columns names="id_rol" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre la tabla usuario y la tabla rol ]]> </comment>
+</constraint>
+
+<constraint name="fk_user" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.usuarios" table="usuarios.&quot;historial_contraseñas&quot;">
+	<columns names="fk_user" ref-type="src-columns"/>
+	<columns names="id_user" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion  con la tabla usuario]]> </comment>
+</constraint>
+
+<constraint name="fk_contraseña" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.pasword_user" table="usuarios.&quot;historial_contraseñas&quot;">
+	<columns names="fk_password" ref-type="src-columns"/>
+	<columns names="id_password" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion con la tabla contraseña ]]> </comment>
+</constraint>
+
+<constraint name="fk_usuario" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.usuarios" table="facturacion.factura">
+	<columns names="fk_usuario" ref-type="src-columns"/>
+	<columns names="id_user" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion con la tabla usuario ]]> </comment>
+</constraint>
+
+<constraint name="fk_boleto" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="facturacion.boleto" table="facturacion.detalle_factura">
+	<columns names="fk_boleto" ref-type="src-columns"/>
+	<columns names="id_boleto" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre factura y boleto ]]> </comment>
+</constraint>
+
+<constraint name="fk_factura" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="facturacion.factura" table="facturacion.detalle_factura">
+	<columns names="fk_fatura" ref-type="src-columns"/>
+	<columns names="id_factura" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre detalle factura y factura ]]> </comment>
+</constraint>
+
+<constraint name="fk_turno" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ruta.turno" table="facturacion.boleto">
+	<columns names="fk_turno" ref-type="src-columns"/>
+	<columns names="id_turno" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre boleto y turno ]]> </comment>
+</constraint>
+
+<constraint name="fk_vehiculo" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.vechiculo" table="usuarios.conductor">
+	<columns names="fk_vehiculo" ref-type="src-columns"/>
+	<columns names="id_vehiculo" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre conductor y vehiculo ]]> </comment>
+</constraint>
+
+<constraint name="fk_user" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.usuarios" table="usuarios.conductor">
+	<columns names="fk_user" ref-type="src-columns"/>
+	<columns names="id_user" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre usuario y conductor ]]> </comment>
+</constraint>
+
+<constraint name="fk_marca" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.marca" table="usuarios.vechiculo">
+	<columns names="fk_marca" ref-type="src-columns"/>
+	<columns names="id_marca" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre vehiculo y marca ]]> </comment>
+</constraint>
+
+<constraint name="fk_lugar_en" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ruta.sitios" table="ruta.ruta">
+	<columns names="fk_lugar_encuentro" ref-type="src-columns"/>
+	<columns names="id_siitos" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre ruta y sitios ]]> </comment>
+</constraint>
+
+<constraint name="fk_ruta" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ruta.ruta" table="ruta.detalle_ruta">
+	<columns names="fk_ruta" ref-type="src-columns"/>
+	<columns names="id_ruta" ref-type="dst-columns"/>
+		<comment> <![CDATA[reacion entre detalle_ruta y ruta ]]> </comment>
+</constraint>
+
+<constraint name="fk_sitios" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ruta.sitios" table="ruta.detalle_ruta">
+	<columns names="fk_sitios" ref-type="src-columns"/>
+	<columns names="id_siitos" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre detale ruta y sitios ]]> </comment>
+</constraint>
+
+<constraint name="fk_ruta" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="ruta.ruta" table="ruta.turno">
+	<columns names="fk_id_ruta" ref-type="src-columns"/>
+	<columns names="id_ruta" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre turno y ruta ]]> </comment>
+</constraint>
+
+<constraint name="fk_conductor" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.conductor" table="ruta.turno">
+	<columns names="fk_conductor" ref-type="src-columns"/>
+	<columns names="id_conductor" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre turno y conductor ]]> </comment>
+</constraint>
+
+<constraint name="fk_factura" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="facturacion.factura" table="pago.detalle_pago">
+	<columns names="fk_factura" ref-type="src-columns"/>
+	<columns names="id_factura" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre detalle pago y factura ]]> </comment>
+</constraint>
+
+<constraint name="fk_metodo" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="pago.metodo_pago" table="pago.detalle_pago">
+	<columns names="fk_metodo_pago" ref-type="src-columns"/>
+	<columns names="id_metodo" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre detalle_pago y metodo pago ]]> </comment>
+</constraint>
+
+<constraint name="fk_usuario" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="usuarios.usuarios" table="usuarios.secion">
+	<columns names="fk_usuario" ref-type="src-columns"/>
+	<columns names="id_user" ref-type="dst-columns"/>
+		<comment> <![CDATA[relacion entre secion y usuario]]> </comment>
+</constraint>
+
+<relationship name="rel_usuarios_idioma" type="relfk" layers="0"
+	 custom-color="#ffaa7f"
+	 src-table="usuarios.usuarios"
+	 dst-table="usuarios.idioma" reference-fk="fk_idioma"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_usuarios_rol" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="usuarios.usuarios"
+	 dst-table="usuarios.rol" reference-fk="fk_rol"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_historial_contraseñas_usuarios&quot;" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="usuarios.&quot;historial_contraseñas&quot;"
+	 dst-table="usuarios.usuarios" reference-fk="fk_user"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_historial_contraseñas_pasword_user&quot;" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="usuarios.&quot;historial_contraseñas&quot;"
+	 dst-table="usuarios.pasword_user" reference-fk="fk_contraseña"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_factura_usuarios" type="relfk" layers="0"
+	 custom-color="#ffffff"
+	 src-table="facturacion.factura"
+	 dst-table="usuarios.usuarios" reference-fk="fk_usuario"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_detalle_factura_boleto" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="facturacion.detalle_factura"
+	 dst-table="facturacion.boleto" reference-fk="fk_boleto"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_detalle_factura_factura" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="facturacion.detalle_factura"
+	 dst-table="facturacion.factura" reference-fk="fk_factura"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_boleto_turno" type="relfk" layers="0"
+	 custom-color="#ffffff"
+	 src-table="facturacion.boleto"
+	 dst-table="ruta.turno" reference-fk="fk_turno"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_conductor_vechiculo" type="relfk" layers="0"
+	 src-table="usuarios.conductor"
+	 dst-table="usuarios.vechiculo" reference-fk="fk_vehiculo"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_conductor_usuarios" type="relfk" layers="0"
+	 custom-color="#ffaa7f"
+	 src-table="usuarios.conductor"
+	 dst-table="usuarios.usuarios" reference-fk="fk_user"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_vechiculo_marca" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="usuarios.vechiculo"
+	 dst-table="usuarios.marca" reference-fk="fk_marca"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_ruta_sitios" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="ruta.ruta"
+	 dst-table="ruta.sitios" reference-fk="fk_lugar_en"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_detalle_ruta_ruta" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="ruta.detalle_ruta"
+	 dst-table="ruta.ruta" reference-fk="fk_ruta"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_detalle_ruta_sitios" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="ruta.detalle_ruta"
+	 dst-table="ruta.sitios" reference-fk="fk_sitios"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_turno_ruta" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="ruta.turno"
+	 dst-table="ruta.ruta" reference-fk="fk_ruta"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_turno_conductor" type="relfk" layers="0"
+	 custom-color="#ffffff"
+	 src-table="ruta.turno"
+	 dst-table="usuarios.conductor" reference-fk="fk_conductor"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_detalle_pago_factura" type="relfk" layers="0"
+	 custom-color="#ffffff"
+	 src-table="pago.detalle_pago"
+	 dst-table="facturacion.factura" reference-fk="fk_factura"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_detalle_pago_metodo_pago" type="relfk" layers="0"
+	 custom-color="#ffaa00"
+	 src-table="pago.detalle_pago"
+	 dst-table="pago.metodo_pago" reference-fk="fk_metodo"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_secion_usuarios" type="relfk" layers="0"
+	 custom-color="#ffaa7f"
+	 src-table="usuarios.secion"
+	 dst-table="usuarios.usuarios" reference-fk="fk_usuario"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

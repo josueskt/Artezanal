@@ -21,8 +21,16 @@ const routes : Routes = [
 
   {path: 'home', component: HomeComponent , pathMatch: 'full'},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'rutas', component: MapComponent},
   {path: 'nosotros', component: NosotrosComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'list-sitios', component: ListSitiosComponent },
+  {path: 'history-reservas', component: HistoryReservasComponent },
+  {path: 'Factura', component: FacturaComponent },
+  {path: 'users-register', component: UsersRegisterComponent },
+  {path: 'add-rutas', component: AddRutasComponent},
+  {path: 'list-rutas', component: ListRutasComponent},
+  {path: 'add-ofertas', component: AddOfertasComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 //INICIO SERVICIOS
@@ -7,38 +7,52 @@ import { CargaJsService } from './carga-js.service';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { InicioAdminComponent } from './inicio-admin/inicio-admin.component';
-import { ListOfertasComponent } from './list-ofertas/list-ofertas.component';
-import { ListRutasComponent } from './list-rutas/list-rutas.component';
+import { ListOfertasComponent } from './administracion/users-register/list-ofertas/list-ofertas.component';
+import { ListRutasComponent } from './administracion/users-register/list-rutas/list-rutas.component';
 import { HistoryReservasComponent } from './history-reservas/history-reservas.component';
-import { AddOfertasComponent } from './add-ofertas/add-ofertas.component';
-import { AddRutasComponent } from './add-rutas/add-rutas.component';
-import { FacturaComponent } from './Factura/Factura.component';
+import { AddOfertasComponent } from './administracion/users-register/add-ofertas/add-ofertas.component';
+import { AddRutasComponent } from './administracion/users-register/add-rutas/add-rutas.component';
+import { FacturaComponent } from './administracion/users-register/Factura/Factura.component';
 import { LoginComponent } from './login/login.component';
-import { ReservaComponent } from './usuario/reserva/reserva.component';
+
+import {ListSitiosComponent} from './administracion/users-register/list-sitios/list-sitios.component';
+import {UsersRegisterComponent} from './administracion/users-register/users-register.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 import { GeolocalisacionComponent } from './usuario/geolocalisacion/geolocalisacion.component';
 import { MapComponent } from './usuario/geolocalisacion/map/map.component';
-
-import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
 
 @NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
     NosotrosComponent,
-    ReservaComponent
+    GeolocalisacionComponent,
+    MapComponent,
+
+
+    ListSitiosComponent,
+    HistoryReservasComponent,
+    FacturaComponent,
+    UsersRegisterComponent,
+    AddRutasComponent,
+    ListRutasComponent,
+    AddOfertasComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GoogleMapsModule
+
   ],
   providers: [
     CargaJsService
@@ -47,5 +61,3 @@ import { GoogleMapsModule } from '@angular/google-maps';
   exports: [FormsModule]
 })
 export class AppModule { }
-
-

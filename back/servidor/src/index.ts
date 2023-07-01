@@ -1,6 +1,6 @@
 import express , {Application} from 'express';
 import indexRoutes from './routes/indexRoutes';
-import gamesRoutes from './routes/gamesRoutes'; 
+import  HomeRoute from './routes/userRoutes/home'; 
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -22,7 +22,7 @@ this.app.use(express.urlencoded({ extended:false }));
  }
  routes():void {
 this.app.use(indexRoutes); 
-this.app.use('/games',gamesRoutes); 
+this.app.use('/home',HomeRoute); 
 
 
  }

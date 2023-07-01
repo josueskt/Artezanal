@@ -17,15 +17,12 @@ export class UsersRegisterComponent implements OnInit {
       email: 'usuario2@mail.com',
       phone: '0987654321'
     }
-    // Agrega más usuarios aquí si es necesario
   ];
 
   deleteUser(user: any) {
-    // Lógica para eliminar al usuario
   }
 
   blockUser(user: any) {
-    // Lógica para bloquear al usuario
   }
 
   constructor() { }

@@ -1,0 +1,17 @@
+<div class="header">
+  Usuarios Registrados
+</div>
+
+<ul class="user-list">
+  <li *ngFor="let user of users">
+    <div class="user-name">{{ user.name }}</div>
+    <div class="user-info">
+      <span>Correo: {{ user.email }}</span>
+      <span>Teléfono: {{ user.phone }}</span>
+    </div>
+    <div class="user-actions">
+      <button class="delete" (click)="deleteUser(user)">Eliminar</button>
+      <button class="block" (click)="blockUser(user)">Bloquear</button>
+    </div>
+  </li>
+</ul>

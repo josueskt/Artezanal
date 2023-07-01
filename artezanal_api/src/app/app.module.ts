@@ -25,6 +25,7 @@ import {UsersRegisterComponent} from './administracion/users-register/users-regi
 import { GoogleMapsModule } from '@angular/google-maps';
 import { GeolocalisacionComponent } from './usuario/geolocalisacion/geolocalisacion.component';
 import { MapComponent } from './usuario/geolocalisacion/map/map.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -51,7 +52,8 @@ import { MapComponent } from './usuario/geolocalisacion/map/map.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    HttpClientModule
 
   ],
   providers: [

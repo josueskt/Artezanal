@@ -8,7 +8,7 @@ margin: 0;
 a{ text-decoration: none}
 .rut>h1{
 	margin: 0;
-	
+
 }
 .rut{
 	margin-top: 10px;
@@ -23,7 +23,7 @@ a{ text-decoration: none}
 
 .inf-ruta {
 	margin: 0;
-	padding: 5px;
+
 }
 
 .imagen-ruta{
@@ -43,13 +43,13 @@ a{ text-decoration: none}
 		grid-template-columns: 1fr 1fr;
 	}
 	.rutas{
-	
+
 		margin: 0 150px;
 	}
 }
 @media (max-width: 1199px){
 	.rutas{
-	
+
 		margin: 0 5px;
 	}
 	.imagen-ruta{
@@ -66,8 +66,8 @@ a{ text-decoration: none}
 }
 
 .ruta{
-    background-color: rgb(220, 162, 85);
-	
+    background-color: rgb(180, 160, 134);
+
 }
 
 .inf-ruta{

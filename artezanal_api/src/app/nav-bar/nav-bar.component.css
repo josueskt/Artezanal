@@ -83,6 +83,18 @@ background-size: cover;
 .navbar .nav-item i {
 	font-size: 18px;
 }
+.sing-in{
+  border: white 2px solid ;
+  color: white;
+}
+.sing-up{
+
+  color: rgb(255, 255, 255);
+}
+.sing-in:hover , .sing-up:hover{
+  color: #bd9b43;
+  border-color: #bd9b43;
+}
 .navbar .dropdown-item i {
 	font-size: 16px;
 	min-width: 22px;

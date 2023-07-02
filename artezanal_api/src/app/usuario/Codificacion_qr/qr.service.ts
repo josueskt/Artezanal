@@ -14,5 +14,5 @@ export class QrService {
     return this.http.get<any>(this.apiUrl);
   }
 
-  c
+
 }

@@ -30,13 +30,12 @@
 						<a href=""> <button class="btn sing_in sing-in " value="sign In">sign In</button></a>
 					</div>
 					<div *ngIf="iniciado ">
-						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action text-white"><img
-							src='{{user_image}}'
-							class="avatar" alt="Avatar"> {{user_name}} </a>
+						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action text-white">
+							 {{user_name}} </a>
 					<div class="dropdown-menu">
-						<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
-						<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a>
-						<a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a>
+						<a routerLink="/perfil" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+						<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Mis Boletos</a>
+
 						<div class="dropdown-divider"></div>
 						<a routerLink="/login" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
 					</div>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -15,6 +15,7 @@ import { AddRutasComponent } from './administracion/users-register/add-rutas/add
 import { ListRutasComponent } from './administracion/users-register/list-rutas/list-rutas.component';
 import { AddOfertasComponent } from './administracion/users-register/add-ofertas/add-ofertas.component';
 import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
+import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 
 
@@ -32,7 +33,8 @@ const routes : Routes = [
   {path: 'users-register', component: UsersRegisterComponent },
   {path: 'add-rutas', component: AddRutasComponent},
   {path: 'list-rutas', component: ListRutasComponent},
-  {path: 'add-ofertas', component: AddOfertasComponent}
+  {path: 'add-ofertas', component: AddOfertasComponent},
+  {path: 'perfil',component:PerfilComponent}
 ];
 
 @NgModule({

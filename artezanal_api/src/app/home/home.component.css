@@ -26,10 +26,7 @@ a{ text-decoration: none}
 
 }
 
-.imagen-ruta{
-	border: solid 4px black !important;
 
-}
 @media (min-width: 1200px){
 	.form-inline .input-group {
 		width: 300px;
@@ -66,7 +63,7 @@ a{ text-decoration: none}
 }
 
 .ruta{
-    background-color: rgb(180, 160, 134);
+    background-color: rgb(209, 159, 93);
 
 }
 

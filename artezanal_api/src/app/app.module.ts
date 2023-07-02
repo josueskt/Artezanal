@@ -27,6 +27,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from './usuario/geolocalisacion/map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
+import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 
 
@@ -48,7 +49,8 @@ import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
     AddRutasComponent,
     ListRutasComponent,
     AddOfertasComponent,
-    QrComponent
+    QrComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

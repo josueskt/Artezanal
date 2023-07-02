@@ -53,7 +53,8 @@
             <h4 class=""> {{ruta.precio}}$</h4>
 
             <!-- poner el id en el boton para que cargue la ruta   -->
-            <button class="  btn btn-lg bg-success active " data-toggle="button" aria-pressed="false">reservar</button>
+            <a [routerLink]="'/rutas/' + ruta.id_ruta" class="btn btn-lg bg-success active" data-toggle="button" aria-pressed="false">reservar</a>
+
           </div>
 
 

@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const home_1 = __importDefault(require("./routes/userRoutes/home"));
+const generacion_boleroRoutes_1 = __importDefault(require("./routes/generacion_boleroRoutes"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -22,8 +23,9 @@ class Server {
         this.app.use(express_1.default.urlencoded({ extended: false }));
     }
     routes() {
-        this.app.use(indexRoutes_1.default);
+        this.app.use('/', indexRoutes_1.default);
         this.app.use('/home', home_1.default);
+        this.app.use('/boletos', generacion_boleroRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

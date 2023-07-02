@@ -1,8 +1,10 @@
 import express , {Application} from 'express';
 import indexRoutes from './routes/indexRoutes';
-import  HomeRoute from './routes/userRoutes/home'; 
+import  HomeRoute from './routes/userRoutes/home';
+import g_bolet from './routes/generacion_boleroRoutes'; 
 import morgan from 'morgan';
 import cors from 'cors';
+
 
 
 class  Server { 
@@ -21,8 +23,9 @@ this.app.use(express.urlencoded({ extended:false }));
 
  }
  routes():void {
-this.app.use(indexRoutes); 
+this.app.use('/',indexRoutes); 
 this.app.use('/home',HomeRoute); 
+this.app.use('/boletos',g_bolet);
 
 
  }

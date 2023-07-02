@@ -44,5 +44,19 @@ class HomeController {
             }
         });
     }
+    getRuta(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const va = parseInt(id);
+            try {
+                const ruta = yield database_1.default.query('SELECT * FROM ruta.ruta where id_ruta = $1', [va]);
+                const result = yield database_1.default.query('select s.latitude ,s.longitud ,s.logo , s.informacion ,s.nombre from ruta.sitios s  join ruta.detalle_ruta d_r on d_r.fk_sitios = s.id_siitos join ruta.ruta r  on d_r.fk_ruta = $1 ', [va]);
+                res.json({ ruta: ruta.rows, result: result.rows });
+            }
+            catch (err) {
+                console.error('Error al ejecutar la consulta:', err);
+            }
+        });
+    }
 }
 exports.Home = new HomeController();

@@ -23,9 +23,10 @@ import { LoginComponent } from './login/login.component';
 import {ListSitiosComponent} from './administracion/users-register/list-sitios/list-sitios.component';
 import {UsersRegisterComponent} from './administracion/users-register/users-register.component';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { GeolocalisacionComponent } from './usuario/geolocalisacion/geolocalisacion.component';
+
 import { MapComponent } from './usuario/geolocalisacion/map/map.component';
 import { HttpClientModule } from '@angular/common/http';
+import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
 
 
 
@@ -36,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     HomeComponent,
     NosotrosComponent,
-    GeolocalisacionComponent,
+
     MapComponent,
 
 
@@ -46,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     UsersRegisterComponent,
     AddRutasComponent,
     ListRutasComponent,
-    AddOfertasComponent
+    AddOfertasComponent,
+    QrComponent
   ],
   imports: [
     BrowserModule,

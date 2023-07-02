@@ -1,37 +1,41 @@
-<div class="row" style="background-color: antiquewhite;">
+<div class="row" style="background-color: antiquewhite; height: 100%">
+
   <div class="col-sm">
+    <h1 class="rectangulo-con-punta">Ruta</h1>
+    <br>
     <div id="map"></div>
 
-    <div class="text-center">
-      <h1>Sitios de la ruta</h1>
-    </div>
 
-    <ul class="bg-dark text-white" id="pointName" *ngIf="selectedPoint">
-      <li>
-        <img src='{{selectedPoint.image}}' width="120px" alt="">
-      </li>
-      <li>
-        <div class="col">{{selectedPoint.name}}</div>
-      </li>
+    <ul class=" ruta text-dark" id="pointName">
+
+      <div *ngFor='let ruta of miRuta.ruta'>
+        <h2>informacion de {{ruta.nombre}}</h2>
+        <p>Duracion : {{ruta.duracion}} Horas</p>
+        <p>contiene : {{ruta.inf_adi}}</p>
+        <p>precio por persona : {{ruta.precio}}$</p>
+
+
+      </div>
+
     </ul>
   </div>
   <div class="targeta col-sm">
-    <div class="text-center bg-dark"> <img class=""
-        src="https://th.bing.com/th/id/OIP.PSfZde6J3lxZ_iBQesxBoQAAAA?pid=ImgDet&rs=1" alt=""></div>
+    <h1 class="rectangulo-con-punta">Bares</h1>
+    <div class="text-center text-white ">
 
-    <div>
-      <h3 class="text-center">descripcion</h3>
+      <div class="targetas bg-dark clas row" *ngFor="let punto of miRuta.result">
+        <div class="col-1"> <img src="https://th.bing.com/th/id/OIP.9ckEn6H-0v0IH4ynJ6BBtwHaH_?pid=ImgDet&rs=1"
+            width="100px" alt="not_fund"></div>
+        <div class="col-11">
+          <h1>{{ punto.nombre }}</h1>
+          <p>{{ punto.informacion }}</p>
+        </div>
 
-      <p class="text-star">
-        .asdasdasdasd
-        .asdadsdasd
-      </p>
+
+      </div>
+      <div class="text-center"><button class="btn btn-warning btn-lg ">
+        <h2>RESERVAR</h2>
+      </button></div>
     </div>
-
-
-
-
-
-
-
   </div>
+</div>

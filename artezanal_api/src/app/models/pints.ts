@@ -1,11 +1,13 @@
 export interface Pints {
-  name: string;
-    image?: string;
-    lat: number;
-    lng: number;
+  id_sitios : number;
+  nombre: string;
+
+    latitude: number;
+    longitud: number;
+    informacion:string;
+    logo:string;
 }
 export interface ruta{
-  nombre: string;
-  imagen: string;
-  puntos:Pints[]
+  ruta:any;
+  result:Pints[]
 }

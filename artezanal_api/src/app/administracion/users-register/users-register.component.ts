@@ -17,6 +17,45 @@ export class UsersRegisterComponent implements OnInit {
       email: 'usuario2@mail.com',
       phone: '0987654321'
     }
+    ,{
+      name: 'Usuario 2',
+      email: 'usuario2@mail.com',
+      phone: '0987654321'
+    },{
+      name: 'Usuario 2',
+      email: 'usuario2@mail.com',
+      phone: '0987654321'
+    },
+    {
+      name: 'Usuario 2',
+      email: 'usuario2@mail.com',
+      phone: '0987654321'
+    },
+    {
+      name: 'Usuario 2',
+      email: 'usuario2@mail.com',
+      phone: '0987654321'
+    },
+    {
+      name: 'Usuario 2',
+      email: 'usuario2@mail.com',
+      phone: '0987654321'
+    },
+    {
+      name: 'Usuario 2',
+      email: 'usuario2@mail.com',
+      phone: '0987654321'
+    },
+    {
+      name: 'Usuario 2',
+      email: 'usuario2@mail.com',
+      phone: '0987654321'
+    },
+    {
+      name: 'Usuario 2',
+      email: 'usuario2@mail.com',
+      phone: '0987654321'
+    }
   ];
 
   deleteUser(user: any) {

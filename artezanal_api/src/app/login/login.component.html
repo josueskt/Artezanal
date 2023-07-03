@@ -42,7 +42,8 @@
                   </div>
                   <button class="btn">Ingreso</button>
                   <div class="create-account">
-                      <p>Crear una cuenta nueva? <button  class="register-link">Ingreso</button></p>
+                    <button class="register-link">resgistrar</button>
+                      <p>Crear una cuenta nueva? <a href="#" class="register-link">Ingreso</a></p>
                   </div>
               </form>
           </div>
@@ -50,7 +51,7 @@
           <div class="form-box register ">
               <form action="">
 
-                  <h2>Ingreso</h2>
+                  <h2>Reguistro</h2>
 
                   <div class="input-box">
                       <span class="icon"><i class='bx bxs-user'></i></span>
@@ -72,12 +73,30 @@
                   </div>
                   <button class="btn">Ingreso</button>
                   <div class="create-account">
-                      <p>Tienes una cuenta? <button  class="login-link ">Ingresa</button></p>
+                      <p>Tienes una cuenta? <a href="#" class="login-link">Ingresa</a></p>
                   </div>
               </form>
           </div>
+
       </div>
+
   </div>
+  <!-- Resto del contenido HTML -->
+
+<script>
+  const loginsec = document.querySelector('.login-section');
+  const loginlink = document.querySelector('.login-link');
+  const registerlink = document.querySelector('.register-link');
+
+  registerlink.addEventListener('click', () => {
+    loginsec.classList.add('active');
+  });
+
+  loginlink.addEventListener('click', () => {
+    loginsec.classList.remove('active');
+  });
+</script>
+
 </body>
  -->
 

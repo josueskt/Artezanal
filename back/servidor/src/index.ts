@@ -2,7 +2,8 @@ import express , {Application} from 'express';
 import indexRoutes from './routes/indexRoutes';
 import  HomeRoute from './routes/userRoutes/home';
 import g_bolet from './routes/generacion_boleroRoutes'; 
-import logi from './routes/userRoutes/loginRoutes';
+import logi from './routes/userRoutes/RegisterRoutes';
+import loge from './routes/userRoutes/loginRoutes'; 
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -27,7 +28,8 @@ this.app.use(express.urlencoded({ extended:false }));
 this.app.use('/',indexRoutes); 
 this.app.use('/home',HomeRoute); 
 this.app.use('/boletos',g_bolet);
-this.app.use('/login' , logi);
+this.app.use('/register' , logi);
+this.app.use('/login',loge);
 
 
  }

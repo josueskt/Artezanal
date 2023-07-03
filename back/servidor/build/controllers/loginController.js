@@ -12,31 +12,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registerUser = void 0;
+exports.loginController = void 0;
+const bcrypt_1 = __importDefault(require("bcrypt"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const database_1 = __importDefault(require("../database")); // Importa el cliente de conexión a la base de datos
-const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const loginController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { foto, apellido, nombre, correo, password } = req.body;
-        const idioma = 1;
-        const rol = 1;
-        // Verificar si el usuario ya existe en la base de datos
-        const existingUser = yield database_1.default.query('SELECT * FROM usuarios.usuarios WHERE correo = $1', [correo]);
-        if (existingUser.rows.length > 0) {
-            return res.status(400).json({ message: 'El usuario ya está registrado' });
+        const { correo, password } = req.body;
+        // Verificar si el usuario existe en la base de datos
+        const result = yield database_1.default.query('SELECT * FROM usuarios WHERE correo = $1', [correo]);
+        const user = result.rows[0];
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
         }
-        // Hash de la contraseña
-        // const salt = await bcrypt.genSalt(10);
-        // const hashedPassword = await bcrypt.hash(password, salt);
-        //console.log(hashedPassword);
-        // Insertar nuevo usuario en la base de datos
-        const result = yield database_1.default.query('INSERT INTO usuarios.usuarios (foto, apellido, nombre, correo, fk_idioma, fk_rol) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id_user;', [foto, apellido, nombre, correo, idioma, rol]);
-        const userId = result.rows[0].id_user;
-        console.log(userId);
-        res.status(201).json({ message: 'Usuario registrado exitosamente' });
+        // Verificar la contraseña
+        const validPassword = yield bcrypt_1.default.compare(password, user.password);
+        if (!validPassword) {
+            return res.status(400).json({ message: 'Contraseña incorrecta' });
+        }
+        // Generar el token de autenticación
+        const token = jsonwebtoken_1.default.sign({ id: user.id }, 'secretKey', { expiresIn: '1h' });
+        res.json({ token });
     }
     catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Error en el servidor' });
     }
 });
-exports.registerUser = registerUser;
+exports.loginController = loginController;

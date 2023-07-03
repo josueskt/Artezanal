@@ -1,35 +1,34 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import client from '../database'; // Importa el cliente de conexión a la base de datos
 
-export const registerUser = async  (req: Request, res: Response) => {
-  try {
-    const {foto,apellido ,nombre,correo, password } = req.body;
-
-    const idioma = 1; 
-    const rol = 1;
-
-    // Verificar si el usuario ya existe en la base de datos
-    const existingUser = await client.query('SELECT * FROM usuarios.usuarios WHERE correo = $1', [correo]);
-    if (existingUser.rows.length > 0) {
-      return res.status(400).json({ message: 'El usuario ya está registrado' });
+export const loginController = async (req: Request, res: Response) => {
+    try {
+      const { correo, password } = req.body;
+  
+      // Verificar si el usuario existe en la base de datos
+      const result = await client.query('SELECT * FROM usuarios WHERE correo = $1', [correo]);
+      const user = result.rows[0];
+  
+      if (!user) {
+        return res.status(404).json({ message: 'Usuario no encontrado' });
+      }
+  
+      // Verificar la contraseña
+      const validPassword = await bcrypt.compare(password, user.password);
+      if (!validPassword) {
+        return res.status(400).json({ message: 'Contraseña incorrecta' });
+      }
+  
+      // Generar el token de autenticación
+      const token = jwt.sign({ id: user.id }, 'secretKey', { expiresIn: '1h' });
+  
+      res.json({ token });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error en el servidor' });
     }
-
-    // Hash de la contraseña
-   // const salt = await bcrypt.genSalt(10);
-   // const hashedPassword = await bcrypt.hash(password, salt);
-//console.log(hashedPassword);
-
-    // Insertar nuevo usuario en la base de datos
-
-    const result =   await client.query('INSERT INTO usuarios.usuarios (foto, apellido, nombre, correo, fk_idioma, fk_rol) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id_user;', [foto, apellido, nombre, correo, idioma, rol]);
-
-    const userId = result.rows[0].id_user;
-    console.log(userId);
-
-    res.status(201).json({ message: 'Usuario registrado exitosamente' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Error en el servidor' });
-  }
-};
+  };
+ 
+  

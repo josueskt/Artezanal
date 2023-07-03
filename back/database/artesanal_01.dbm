@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.3" use-changelog="false" last-position="1383,0" last-zoom="1" max-obj-count="22"
+<dbmodel pgmodeler-ver="1.0.3" use-changelog="false" last-position="747,398" last-zoom="1" max-obj-count="22"
 	 default-schema="public" default-owner="postgres"
 	 layers="Default layer"
 	 active-layers="0"
@@ -119,7 +119,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<comment> <![CDATA[id que identifica a la contraseña ]]> </comment>
 	</column>
 	<column name="password">
-		<type name="character varying" length="50"/>
+		<type name="character varying" length="350"/>
 		<comment> <![CDATA[guarda la contraseña del usuario ]]> </comment>
 	</column>
 	<column name="estado">

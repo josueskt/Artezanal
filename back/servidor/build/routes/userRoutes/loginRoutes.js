@@ -8,8 +8,7 @@ class LoginRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', loginController_1.login.index);
-        this.router.post('/', loginController_1.login.register);
+        this.router.post('/', loginController_1.registerUser);
     }
 }
 const logi = new LoginRoutes();

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { login } from '../../controllers/loginController';
+import { registerUser } from '../../controllers/loginController';
 
 
 class LoginRoutes {
@@ -8,8 +8,7 @@ class LoginRoutes {
  this.config()
     }
     config(): void {
-        this.router.get('/',  login.index );
-        this.router.post('/', login.register)
+        this.router.post('/', registerUser);
        
     }
 }

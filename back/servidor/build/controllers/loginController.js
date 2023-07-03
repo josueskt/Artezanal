@@ -12,52 +12,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.login = void 0;
-const database_1 = __importDefault(require("../database"));
-const bcrypt_1 = __importDefault(require("bcrypt"));
-const users = [];
-class loginController {
-    index(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const result = yield database_1.default.query('SELECT * FROM usuarios.usuarios ');
-                res.json(result.rows);
-            }
-            catch (error) {
-                console.error('Error al ejecutar la consulta:', error);
-                res.status(500).json({ error: 'Error al ejecutar la consulta' });
-            }
-            finally {
-            }
-        });
+exports.registerUser = void 0;
+const database_1 = __importDefault(require("../database")); // Importa el cliente de conexión a la base de datos
+const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { foto, apellido, nombre, correo, password } = req.body;
+        const idioma = 1;
+        const rol = 1;
+        // Verificar si el usuario ya existe en la base de datos
+        const existingUser = yield database_1.default.query('SELECT * FROM usuarios.usuarios WHERE correo = $1', [correo]);
+        if (existingUser.rows.length > 0) {
+            return res.status(400).json({ message: 'El usuario ya está registrado' });
+        }
+        // Hash de la contraseña
+        // const salt = await bcrypt.genSalt(10);
+        // const hashedPassword = await bcrypt.hash(password, salt);
+        //console.log(hashedPassword);
+        // Insertar nuevo usuario en la base de datos
+        yield database_1.default.query('INSERT INTO usuarios.usuarios (foto, apellido, nombre, correo, fk_idioma, fk_rol) VALUES ($1, $2, $3, $4, $5, $6)', [foto, apellido, nombre, correo, idioma, rol]);
+        res.status(201).json({ message: 'Usuario registrado exitosamente' });
     }
-    ;
-    register(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { username, password } = req.body;
-                // Verificar si el usuario ya existe
-                const existingUser = users.find((user) => user.username === username);
-                if (existingUser) {
-                    return res.status(400).json({ message: 'El usuario ya está registrado' });
-                }
-                // Hash de la contraseña
-                const salt = yield bcrypt_1.default.genSalt(10);
-                const hashedPassword = yield bcrypt_1.default.hash(password, salt);
-                // Crear nuevo usuario
-                const newUser = {
-                    username,
-                    password: hashedPassword,
-                };
-                users.push(newUser);
-                res.status(201).json({ message: 'Usuario registrado exitosamente' });
-            }
-            catch (error) {
-                console.error(error);
-                res.status(500).json({ message: 'Error en el servidor' });
-            }
-        });
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error en el servidor' });
     }
-    ;
-}
-exports.login = new loginController();
+});
+exports.registerUser = registerUser;

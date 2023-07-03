@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { Index } from '../controllers/indexController';
 
+
 class indexRoutes {
     router: Router = Router();
     constructor() {
@@ -8,6 +9,7 @@ class indexRoutes {
     }
     config(): void {
         this.router.get('/', Index.index );
+        
         
         
     }

@@ -1,63 +1,33 @@
 import { Request, Response } from 'express';
-import client from '../database';
 import bcrypt from 'bcrypt';
-import cors from 'cors';
-import jwt from 'jsonwebtoken';
+import client from '../database'; // Importa el cliente de conexión a la base de datos
 
-const users: any[] = [];
+export const registerUser = async (req: Request, res: Response) => {
+  try {
+    const {foto,apellido ,nombre,correo, password } = req.body;
 
-class loginController {
-    async index(req: Request, res: Response) {
+    const idioma = 1; 
+    const rol = 1;
 
-
-
-        try {
-            const result = await client.query('SELECT * FROM usuarios.usuarios ');
-
-            res.json(result.rows);
-        } catch (error) {
-            console.error('Error al ejecutar la consulta:', error);
-            res.status(500).json({ error: 'Error al ejecutar la consulta' });
-        } finally {
-
-        }
-    };
-
-  
-    async register(req: Request, res: Response){
-    try {
-        const { username, password } = req.body;
-
-        // Verificar si el usuario ya existe
-        const existingUser = users.find((user) => user.username === username);
-        if (existingUser) {
-            return res.status(400).json({ message: 'El usuario ya está registrado' });
-        }
-
-        // Hash de la contraseña
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-
-        // Crear nuevo usuario
-        const newUser = {
-            username,
-            password: hashedPassword,
-        };
-
-        users.push(newUser);
-
-        res.status(201).json({ message: 'Usuario registrado exitosamente' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error en el servidor' });
+    // Verificar si el usuario ya existe en la base de datos
+    const existingUser = await client.query('SELECT * FROM usuarios.usuarios WHERE correo = $1', [correo]);
+    if (existingUser.rows.length > 0) {
+      return res.status(400).json({ message: 'El usuario ya está registrado' });
     }
+
+    // Hash de la contraseña
+   // const salt = await bcrypt.genSalt(10);
+   // const hashedPassword = await bcrypt.hash(password, salt);
+//console.log(hashedPassword);
+
+    // Insertar nuevo usuario en la base de datos
+
+    await client.query('INSERT INTO usuarios.usuarios (foto, apellido, nombre, correo, fk_idioma, fk_rol) VALUES ($1, $2, $3, $4, $5, $6)', [foto, apellido, nombre, correo, idioma, rol]);
+
+
+    res.status(201).json({ message: 'Usuario registrado exitosamente' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error en el servidor' });
+  }
 };
-
-
-
-
-    }
-
-
-
-export const login = new loginController()

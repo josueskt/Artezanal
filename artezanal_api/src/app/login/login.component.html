@@ -1,4 +1,4 @@
- <head>
+ <!-- <head>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -100,6 +100,38 @@
 </script>
 
 </body>
+
+
+ -->
+ <h1>Registro de Usuario</h1>
+ <form (ngSubmit)="registerUser()">
+   <label>Foto:</label>
+   <input type="text" class="form-control" id="validationCustomUsername" placeholder="ingresa tu nombre" [(ngModel)]="usuario.foto" name="foto" required>
+   <label>Apellido:</label>
+   <input type="text" [(ngModel)]="usuario.apellido" name="apellido" required>
+   <label>Nombre:</label>
+   <input type="text" [(ngModel)]="usuario.nombre" name="nombre" required>
+   <label>Correo electrónico:</label>
+   <input type="email" [(ngModel)]="usuario.correo" name="correo" required>
+   <label>Contraseña:</label>
+   <input type="password" [(ngModel)]="usuario.password" name="password" required>
+   <button type="submit">Registrarse</button>
+ </form>
+
+ <!-- Mostrar mensaje de registro exitoso -->
+<div *ngIf="registroExitoso" class="mensaje-exitoso">Usuario registrado exitosamente.</div>
+
+<!-- Mostrar mensaje de error en el registro -->
+<div *ngIf="registroError" class="mensaje-error">El usuario ya está registrado.</div>
+
+<!-- Formulario de registro -->
+<form (ngSubmit)="registerUser()">
+  <!-- Campos del formulario -->
+  <!-- ... -->
+
+  <!-- Botón de registro -->
+  <button type="submit">Registrarse</button>
+</form>
 
 
 

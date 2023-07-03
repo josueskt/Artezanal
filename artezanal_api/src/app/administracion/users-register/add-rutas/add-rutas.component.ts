@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RutasService } from '../../../../../../back/servidor/src/rutas.service';
+import { Ruta } from '../../../../../../back/servidor/src/ruta.interface';  // Recuerda ajustar la ruta de importación según corresponda
 
 @Component({
   selector: 'app-add-rutas',
@@ -6,17 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-rutas.component.css']
 })
 export class AddRutasComponent {
-  routeDuration: number;
   routeName = '';
   routeDistance = '';
-  routeDifficulty = '';
   routeDescription = '';
+  routeDuration = '';
+  routeDifficulty = '';  // Asegúrate de que esto esté definido en tu componente
   displayImage = '';
-  routes = [];
+
+  constructor(private rutasService: RutasService) {}
 
   onFileChange(event) {
     const reader = new FileReader();
-    if(event.target.files && event.target.files.length) {
+    if(event.target.files?.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => {
@@ -26,24 +29,22 @@ export class AddRutasComponent {
   }
 
   onSubmit() {
-    if (this.routeName && this.routeDistance && this.routeDifficulty && this.routeDescription) {
-      this.routes.push({
+    if (this.routeName && this.routeDistance && this.routeDuration && this.routeDescription && this.routeDifficulty) {
+      const newRoute: Ruta = {
         routeName: this.routeName,
         routeDistance: this.routeDistance,
-        routeDifficulty: this.routeDifficulty,
-        routeDescription: this.routeDescription
-      });
+        routeDuration: this.routeDuration,
+        routeDescription: this.routeDescription,
+        routeImage: this.displayImage,
+        routeDifficulty: this.routeDifficulty  // Asegúrate de agregarlo si es requerido
+      };
+      this.rutasService.addRuta(newRoute);
       this.routeName = '';
       this.routeDistance = '';
-      this.routeDifficulty = '';
+      this.routeDuration = '';
       this.routeDescription = '';
-    }
-  }
-
-  deleteRoute(route) {
-    const index = this.routes.indexOf(route);
-    if (index > -1) {
-      this.routes.splice(index, 1);
+      this.routeDifficulty = '';
+      this.displayImage = '';
     }
   }
 }

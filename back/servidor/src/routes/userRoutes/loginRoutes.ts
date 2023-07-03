@@ -1,16 +1,22 @@
+
 import { Router } from 'express';
-import { loginController } from '../../controllers/logincontroller';
+
+import { login } from '../../controllers/logincontroller';
+
+const router:Router = Router();
 
 
-class LoginRoutes {
+
+
+
+class loginRoutes {
     router: Router = Router();
     constructor() {
  this.config()
     }
     config(): void {
-        this.router.post('/', loginController );
-       
+        router.post('/', login);
     }
 }
-const logi = new LoginRoutes();
-export default logi.router;
+const loginRoute = new loginRoutes();
+export default loginRoute.router;

@@ -6,7 +6,7 @@ import logi from './routes/userRoutes/RegisterRoutes';
 import loge from './routes/userRoutes/loginRoutes'; 
 import morgan from 'morgan';
 import cors from 'cors';
-import { verifyToken } from './middlewares/authMiddleware';
+
 
 
 
@@ -22,7 +22,7 @@ class  Server {
 
  
  config():void {
-this.app.use(verifyToken);
+
 this.app.set('port',process.env.PORT||3005 );
 this.app.use(morgan('dev')); 
 this.app.use(cors());
@@ -36,6 +36,7 @@ this.app.use('/home',HomeRoute);
 this.app.use('/boletos',g_bolet);
 this.app.use('/register' , logi);
 this.app.use('/login',loge);
+
 
 
  }

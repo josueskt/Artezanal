@@ -1,9 +1,9 @@
 
 import { Router } from 'express';
 
-import { login } from '../../controllers/logincontroller';
+import { login } from '../../controllers/loginController';
 
-const router:Router = Router();
+const router: Router = Router();
 
 
 
@@ -12,7 +12,7 @@ const router:Router = Router();
 class loginRoutes {
     router: Router = Router();
     constructor() {
- this.config()
+        this.config()
     }
     config(): void {
         router.post('/', login);

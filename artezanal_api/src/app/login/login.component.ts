@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { RegisterLoginService } from './register-login.service';
 import { Usuario } from '../models/register';
+import { AuthenticationService } from './auntentification.service';
 
 @Component({
   selector: 'app-registro',
@@ -13,8 +14,10 @@ export class LoginComponent implements OnInit {
   usuario: Usuario = new Usuario(); // Objeto para almacenar los datos del usuario
   registroExitoso: boolean = false; // Variable para controlar el estado del registro exitoso
   registroError: boolean = false; // Variable para controlar el estado del registro con error
+  email: string;
+  password: string;
 
-  constructor(private userService: RegisterLoginService) { }
+  constructor(private userService: RegisterLoginService , private authService: AuthenticationService) { }
 
   ngOnInit() {
     const loginsec = document.querySelector('.login-section');
@@ -55,4 +58,28 @@ export class LoginComponent implements OnInit {
       return ;
     }
   }
+
+  login() {
+    this.authService.login(this.email, this.password)
+      .subscribe(
+        response => {
+          // La solicitud fue exitosa, se recibe el token y el usuario desde el servidor
+          const token = response.token;
+          const user = response.user;
+
+          // Guardar el token y el usuario en el almacenamiento local o en un servicio de autenticación
+          // ...
+
+          // Redirigir a la página de inicio o a otra página de la aplicación
+          // ...
+        },
+        error => {
+          // Hubo un error en la solicitud
+          console.error(error);
+          // Manejar el error adecuadamente en tu aplicación
+          // ...
+        }
+      );
+  }
 }
+

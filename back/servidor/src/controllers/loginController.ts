@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import client from '../database'; // Importa el cliente de conexión a la base de datos
 
-export const registerUser = async (req: Request, res: Response) => {
+export const registerUser = async  (req: Request, res: Response) => {
   try {
     const {foto,apellido ,nombre,correo, password } = req.body;
 

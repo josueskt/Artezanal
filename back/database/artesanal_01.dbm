@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.3" use-changelog="false" last-position="894,301" last-zoom="0.75" max-obj-count="22"
+<dbmodel pgmodeler-ver="1.0.3" use-changelog="false" last-position="1383,0" last-zoom="1" max-obj-count="22"
 	 default-schema="public" default-owner="postgres"
 	 layers="Default layer"
 	 active-layers="0"
@@ -215,7 +215,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="facturacion"/>
 	<role name="postgres"/>
 	<comment> <![CDATA[tabla que fuarda  el detale de la factura ]]> </comment>
-	<position x="2160" y="280"/>
+	<position x="2160" y="320"/>
 	<column name="id_detalle" not-null="true">
 		<type name="serial" length="0"/>
 		<comment> <![CDATA[registro unico de detalle de factura ]]> </comment>
@@ -449,7 +449,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="pago"/>
 	<role name="postgres"/>
 	<comment> <![CDATA[contiene todos los metodos de pago de  el cliente ]]> </comment>
-	<position x="1320" y="60"/>
+	<position x="1240" y="80"/>
 	<column name="id_detalle_p" not-null="true">
 		<type name="serial" length="0"/>
 		<comment> <![CDATA[registro unico identifica a el detalle ]]> </comment>
@@ -471,7 +471,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="pago"/>
 	<role name="postgres"/>
 	<comment> <![CDATA[tiene el metodo de pago ]]> </comment>
-	<position x="1000" y="60"/>
+	<position x="920" y="80"/>
 	<column name="id_metodo" not-null="true">
 		<type name="serial" length="0"/>
 		<comment> <![CDATA[registro unico que identifica al pago ]]> </comment>

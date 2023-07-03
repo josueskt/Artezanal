@@ -8,7 +8,7 @@ export const loginController = async (req: Request, res: Response) => {
       const { correo, password } = req.body;
   
       // Verificar si el usuario existe en la base de datos
-      const result = await client.query('SELECT * FROM usuarios WHERE correo = $1', [correo]);
+      const result = await client.query('SELECT * FROM usuarios.usuarios WHERE correo = $1', [correo]);
       const user = result.rows[0];
   
       if (!user) {

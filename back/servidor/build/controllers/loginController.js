@@ -29,7 +29,9 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         // const hashedPassword = await bcrypt.hash(password, salt);
         //console.log(hashedPassword);
         // Insertar nuevo usuario en la base de datos
-        yield database_1.default.query('INSERT INTO usuarios.usuarios (foto, apellido, nombre, correo, fk_idioma, fk_rol) VALUES ($1, $2, $3, $4, $5, $6)', [foto, apellido, nombre, correo, idioma, rol]);
+        const result = yield database_1.default.query('INSERT INTO usuarios.usuarios (foto, apellido, nombre, correo, fk_idioma, fk_rol) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id_user;', [foto, apellido, nombre, correo, idioma, rol]);
+        const userId = result.rows[0].id_user;
+        console.log(userId);
         res.status(201).json({ message: 'Usuario registrado exitosamente' });
     }
     catch (error) {

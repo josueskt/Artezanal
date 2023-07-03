@@ -16,26 +16,43 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService: RegisterLoginService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    const loginsec = document.querySelector('.login-section');
+    const loginlink = document.querySelector('.login-link');
+    const registerlink = document.querySelector('.register-link');
+
+    registerlink.addEventListener('click', () => {
+      loginsec.classList.add('active');
+    });
+
+    loginlink.addEventListener('click', () => {
+      loginsec.classList.remove('active');
+    });
+   }
 
   registerUser() {
-    if (!this.usuario.foto || !this.usuario.nombre || !this.usuario.apellido || !this.usuario.correo || !this.usuario.password) {
+    if (this.usuario.foto || this.usuario.nombre || this.usuario.apellido || this.usuario.correo || this.usuario.password) {
       // Mostrar mensaje de error si falta algún campo obligatorio
       this.registroError = true;
-      return;
-    }
 
-    this.userService.registerUser(this.usuario).subscribe(
-      response => {
-        // Registro exitoso
-        this.registroExitoso = true;
-        this.registroError = false;
-      },
-      error => {
-        // Error en el registro
-        this.registroExitoso = false;
-        this.registroError = true;
-      }
-    );
+
+
+      this.userService.registerUser(this.usuario).subscribe(
+        response => {
+          // Registro exitoso
+          this.registroExitoso = true;
+          this.registroError = false;
+        },
+        error => {
+          // Error en el registro
+          this.registroExitoso = false;
+          this.registroError = true;
+        }
+      );
+
+    }else{
+      this.registroError = true;
+      return ;
+    }
   }
 }

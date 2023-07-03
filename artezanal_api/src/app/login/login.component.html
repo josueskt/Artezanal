@@ -1,4 +1,4 @@
- <!-- <head>
+ <head>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -49,23 +49,33 @@
           </div>
 
           <div class="form-box register ">
-              <form action="">
+              <form (ngSubmit)="registerUser()">
 
                   <h2>Reguistro</h2>
 
                   <div class="input-box">
                       <span class="icon"><i class='bx bxs-user'></i></span>
-                      <input type="text" required>
-                      <label >Nombre de Usuario</label>
+                      <input type="text" class="form-control" id="validationCustomUsername"  [(ngModel)]="usuario.foto" name="foto" required>
+                      <label >imagen</label>
                   </div>
                   <div class="input-box">
+                    <span class="icon"><i class='bx bxs-user'></i></span>
+                    <input type="text"[(ngModel)]="usuario.apellido" name="apellido" required>
+                    <label >imagen</label>
+                </div>
+                <div class="input-box">
+                  <span class="icon"><i class='bx bxs-user'></i></span>
+                  <input type="text"  [(ngModel)]="usuario.nombre" name="nombre" required>
+                  <label >imagen</label>
+              </div>
+                  <div class="input-box">
                       <span class="icon"><i class='bx bxs-envelope'></i></span>
-                      <input type="email" required>
+                      <input type="email" [(ngModel)]="usuario.correo" name="correo" required>
                       <label >Email</label>
                   </div>
                   <div class="input-box">
                       <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
-                      <input type="password" required>
+                      <input type="password"  [(ngModel)]="usuario.password" name="password" required>
                       <label>Clave</label>
                   </div>
                   <div class="remember-password">
@@ -78,6 +88,10 @@
                       <p>Tienes una cuenta?   <button class="login-link btn btn-outline-dark"> Ingresar</button></p>
                   </div>
               </form>
+              <div *ngIf="registroExitoso" class="mensaje-exitoso">Usuario registrado exitosamente.</div>
+
+<!-- Mostrar mensaje de error en el registro -->
+              <div *ngIf="registroError" class="mensaje-error">El usuario ya está registrado.</div>
           </div>
 
       </div>
@@ -102,36 +116,8 @@
 </body>
 
 
- -->
- <h1>Registro de Usuario</h1>
- <form (ngSubmit)="registerUser()">
-   <label>Foto:</label>
-   <input type="text" class="form-control" id="validationCustomUsername" placeholder="ingresa tu nombre" [(ngModel)]="usuario.foto" name="foto" required>
-   <label>Apellido:</label>
-   <input type="text" [(ngModel)]="usuario.apellido" name="apellido" required>
-   <label>Nombre:</label>
-   <input type="text" [(ngModel)]="usuario.nombre" name="nombre" required>
-   <label>Correo electrónico:</label>
-   <input type="email" [(ngModel)]="usuario.correo" name="correo" required>
-   <label>Contraseña:</label>
-   <input type="password" [(ngModel)]="usuario.password" name="password" required>
-   <button type="submit">Registrarse</button>
- </form>
 
- <!-- Mostrar mensaje de registro exitoso -->
-<div *ngIf="registroExitoso" class="mensaje-exitoso">Usuario registrado exitosamente.</div>
 
-<!-- Mostrar mensaje de error en el registro -->
-<div *ngIf="registroError" class="mensaje-error">El usuario ya está registrado.</div>
-
-<!-- Formulario de registro -->
-<form (ngSubmit)="registerUser()">
-  <!-- Campos del formulario -->
-  <!-- ... -->
-
-  <!-- Botón de registro -->
-  <button type="submit">Registrarse</button>
-</form>
 
 
 

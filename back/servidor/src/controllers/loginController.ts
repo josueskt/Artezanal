@@ -22,8 +22,10 @@ export const registerUser = async  (req: Request, res: Response) => {
 
     // Insertar nuevo usuario en la base de datos
 
-    await client.query('INSERT INTO usuarios.usuarios (foto, apellido, nombre, correo, fk_idioma, fk_rol) VALUES ($1, $2, $3, $4, $5, $6)', [foto, apellido, nombre, correo, idioma, rol]);
+    const result =   await client.query('INSERT INTO usuarios.usuarios (foto, apellido, nombre, correo, fk_idioma, fk_rol) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id_user;', [foto, apellido, nombre, correo, idioma, rol]);
 
+    const userId = result.rows[0].id_user;
+    console.log(userId);
 
     res.status(201).json({ message: 'Usuario registrado exitosamente' });
   } catch (error) {

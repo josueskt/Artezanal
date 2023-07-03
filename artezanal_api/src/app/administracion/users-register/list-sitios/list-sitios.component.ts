@@ -13,15 +13,34 @@ export class ListSitiosComponent {
       img: 'https://i0.wp.com/foodandpleasure.com/wp-content/uploads/2022/12/mejores-bares-mexico-hankypankydf.jpg?ssl=1',
       name: 'Sitio 1',
       description: 'Descripción del sitio 1...',
-      location: 'XYZ',
+      latitud: '',
+      longitud:''
     },
     {
       value: 'sitio2',
       img: 'https://i0.wp.com/foodandpleasure.com/wp-content/uploads/2022/12/mejores-bares-mexico-hankypankydf.jpg?ssl=1',
       name: 'Sitio 2',
       description: 'Descripción del sitio 2...',
-      location: 'ABC',
+      latitud: '',
+      longitud:''
     },
+    {
+      value: 'sitio3',
+      img: 'https://i0.wp.com/foodandpleasure.com/wp-content/uploads/2022/12/mejores-bares-mexico-hankypankydf.jpg?ssl=1',
+      name: 'Sitio 3',
+      description: 'Descripción del sitio 2...',
+      latitud: '',
+      longitud:''
+    },
+    {
+      value: 'sitio4',
+      img: 'https://i0.wp.com/foodandpleasure.com/wp-content/uploads/2022/12/mejores-bares-mexico-hankypankydf.jpg?ssl=1',
+      name: 'Sitio 4',
+      description: 'Descripción del sitio 2...',
+      latitud: '',
+      longitud:''
+    },
+
   ];
 
   selectSite(value: string) {

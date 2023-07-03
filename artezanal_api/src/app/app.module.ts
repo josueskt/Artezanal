@@ -27,6 +27,9 @@ import { MapComponent } from './usuario/geolocalisacion/map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { InicioAdminComponent } from './administracion/users-register/inicio-admin/inicio-admin.component';
+import { AddSitiosComponent } from './administracion/users-register/add-sitios/add-sitios.component';
+import { ConductoresComponent } from './administracion/users-register/conductores/conductores.component';
 
 
 
@@ -49,7 +52,10 @@ LoginComponent,
     ListRutasComponent,
     AddOfertasComponent,
     QrComponent,
-    PerfilComponent
+    PerfilComponent,
+    InicioAdminComponent,
+    AddSitiosComponent,
+    ConductoresComponent,
   ],
   imports: [
     BrowserModule,

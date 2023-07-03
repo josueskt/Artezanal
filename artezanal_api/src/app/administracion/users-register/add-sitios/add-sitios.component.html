@@ -1,0 +1,45 @@
+<section class="vh-100" style="background-size: cover;background-repeat: no-repeat; background-image:url('https://javierlozano.net/wp-content/uploads/2022/05/bares-que-lugares.jpg');">
+
+<br>
+<br>
+<div class="container">
+  <form #addSitiosForm="ngForm" (ngSubmit)="onSubmit(addSitiosForm)">
+    <div class="card">
+      <div class="card-header text-center">
+        <h2><i class="fa fa-map-marker"></i> Agregar Sitio</h2>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="sitioImage"><i class="fa fa-image"></i> Imagen del sitio</label>
+          <input type="file" id="sitioImage" name="sitioImage" class="form-control-file" ngModel>
+        </div>
+
+        <div class="form-group">
+          <label for="sitioName"><i class="fa fa-edit"></i> Nombre</label>
+          <input type="text" id="sitioName" name="sitioName" class="form-control" ngModel required placeholder="Ingrese el nombre del sitio">
+        </div>
+
+        <div class="form-group">
+          <label for="sitioInfo"><i class="fa fa-info-circle"></i> Información</label>
+          <textarea id="sitioInfo" name="sitioInfo" class="form-control" rows="3" ngModel placeholder="Ingrese la información del sitio"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="latitude"><i class="fa fa-location-arrow"></i> Latitud</label>
+          <input type="number" id="latitude" name="latitude" class="form-control" step="any" ngModel required placeholder="Ingrese la latitud">
+        </div>
+
+        <div class="form-group">
+          <label for="longitude"><i class="fa fa-location-arrow"></i> Longitud</label>
+          <input type="number" id="longitude" name="longitude" class="form-control" step="any" ngModel required placeholder="Ingrese la longitud">
+        </div>
+        <a routerLink="/list-sitios">
+
+        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> Agregar Sitio</button>
+        </a>
+      </div>
+    </div>
+  </form>
+</div>
+
+

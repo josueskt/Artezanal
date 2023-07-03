@@ -1,0 +1,18 @@
+<section class="vh-100" style="background-size: cover;background-repeat: no-repeat; background-image:url('https://es.statefarm.com/content/dam/sf-library/en-us/secure/legacy/simple-insights/self-driving-cars-wide.jpg');">
+<br>
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div *ngFor="let conductor of conductores" class="col">
+      <div class="card h-100 shadow">
+        <img [src]="conductor.foto" class="card-img-top" alt="Foto de conductor">
+        <div class="card-body">
+          <h5 class="card-title">{{conductor.nombre}} {{conductor.apellido}}</h5>
+          <p class="card-text">{{conductor.correo}}</p>
+          <p class="card-text">Número de Placa: {{conductor.placa}}</p>
+          <p class="card-text">Número de Asientos: {{conductor.asientos}}</p>
+          <p class="card-text">Marca: {{conductor.marca}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

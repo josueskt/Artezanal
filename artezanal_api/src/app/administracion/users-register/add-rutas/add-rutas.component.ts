@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-rutas.component.css']
 })
 export class AddRutasComponent {
+  routeDuration: number;
   routeName = '';
   routeDistance = '';
   routeDifficulty = '';

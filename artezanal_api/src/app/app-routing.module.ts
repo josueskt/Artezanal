@@ -16,6 +16,9 @@ import { ListRutasComponent } from './administracion/users-register/list-rutas/l
 import { AddOfertasComponent } from './administracion/users-register/add-ofertas/add-ofertas.component';
 import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { InicioAdminComponent } from './administracion/users-register/inicio-admin/inicio-admin.component';
+import { AddSitiosComponent } from './administracion/users-register/add-sitios/add-sitios.component';
+import { ConductoresComponent } from './administracion/users-register/conductores/conductores.component';
 
 
 
@@ -34,7 +37,12 @@ const routes : Routes = [
   {path: 'add-rutas', component: AddRutasComponent},
   {path: 'list-rutas', component: ListRutasComponent},
   {path: 'add-ofertas', component: AddOfertasComponent},
-  {path: 'perfil',component:PerfilComponent}
+  {path: 'perfil',component:PerfilComponent},
+  {path: 'inicio-admin',component:InicioAdminComponent},
+  {path: 'add-sitios',component:AddSitiosComponent},
+  {path: 'conductores',component:ConductoresComponent},
+
+
 ];
 
 @NgModule({

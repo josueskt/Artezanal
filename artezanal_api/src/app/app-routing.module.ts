@@ -26,7 +26,7 @@ const routes : Routes = [
   {path: 'ruta', component:QrComponent , pathMatch: 'full'},
   {path: 'rutas/:id', component: MapComponent},
   {path: 'nosotros', component: NosotrosComponent},
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, pathMatch: 'full'},
   {path: 'list-sitios', component: ListSitiosComponent },
   {path: 'history-reservas', component: HistoryReservasComponent },
   {path: 'Factura', component: FacturaComponent },

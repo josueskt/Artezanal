@@ -4,6 +4,7 @@ import  HomeRoute from './routes/userRoutes/home';
 import g_bolet from './routes/generacion_boleroRoutes'; 
 import logi from './routes/userRoutes/RegisterRoutes';
 import loge from './routes/userRoutes/loginRoutes'; 
+import crear_ruta from './routes/userRoutes/ruta'
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -35,7 +36,8 @@ this.app.use('/',indexRoutes);
 this.app.use('/home',HomeRoute); 
 this.app.use('/boletos',g_bolet);
 this.app.use('/register' , logi);
-this.app.use('/login',loge);
+this.app.use('/login', loge);
+this.app.use('/crear_ruta',crear_ruta );
 
 
 

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,6 +27,7 @@ import { MapComponent } from './usuario/geolocalisacion/map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
+import { RutaService } from './administracion/users-register/list-sitios/rutaService';
 
 
 
@@ -56,11 +57,13 @@ LoginComponent,
     FormsModule,
     AppRoutingModule,
     GoogleMapsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
+
 
   ],
   providers: [
-    CargaJsService
+    CargaJsService,RutaService
   ],
   bootstrap: [AppComponent],
   exports: [FormsModule]

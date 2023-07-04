@@ -1,19 +1,23 @@
-<h1>Agregar Sitio</h1>
-
-<div>
-    <select [(ngModel)]="selectedSite" (change)="selectSite(selectedSite)">
-        <option value="">Seleccione un sitio</option>
-        <option *ngFor="let site of sites" [value]="site.value">{{ site.name }}</option>
-    </select>
-</div>
-
-<button>Agregar Sitio</button>
-
-<div *ngIf="selectedSite">
-    <div class="site-info" *ngFor="let site of sites" [hidden]="selectedSite != site.value">
-        <img [src]="site.img" [alt]="site.name" />
-        <h2>{{ site.name }}</h2>
-        <p>{{ site.description }}</p>
-        <p>Ubicación: {{ site.location }}</p>
-    </div>
-</div>
+<form [formGroup]="rutaForm" (ngSubmit)="enviarFormulario()">
+  <div>
+    <label for="longitud">Longitud:</label>
+    <input id="longitud" type="text" formControlName="longitud">
+  </div>
+  <div>
+    <label for="latitud">Latitud:</label>
+    <input id="latitud" type="text" formControlName="latitud">
+  </div>
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" type="text" formControlName="nombre">
+  </div>
+  <div>
+    <label for="informacion">Información:</label>
+    <textarea id="informacion" rows="5" formControlName="informacion"></textarea>
+  </div>
+  <div>
+    <label for="logo">URL del logo:</label>
+    <input id="logo" type="text" formControlName="logo">
+  </div>
+  <button type="submit">Enviar</button>
+</form>

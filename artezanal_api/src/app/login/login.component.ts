@@ -83,17 +83,25 @@ export class LoginComponent implements OnInit {
           const userName = response.user_name;
 
           // Establecer el nombre de usuario en el servicio compartido
-          this.userNameService.setUserName(userName);
+
 
           // Registro exitoso
           this.registroExitoso = true;
+
           this.registroError = false;
-          this.router.navigate(['/home']);
+
+
+          this.router.navigateByUrl('/home')
+      .then(() => {
+        // Recargar la página después de la redirección
+        window.location.reload();
+      });
         } else {
           console.log("Respuesta inválida del servidor");
           // Error en la respuesta del servidor
           this.registroExitoso = false;
           this.registroError = true;
+
         }
       },
       error => {

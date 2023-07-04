@@ -12,7 +12,7 @@ import { ruta_model } from './../models/ruta';
 })
 export class HomeComponent implements OnInit {
   nombreUsuario: string;
-  token = localStorage.getItem('token');
+
 
   constructor(private rutas: Home_serviciosService ) {
 
@@ -23,8 +23,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
+    
 
-    console.log(this.token);
 
     this.rutas.getRutas().subscribe(
 

@@ -9,6 +9,7 @@ const home_1 = __importDefault(require("./routes/userRoutes/home"));
 const generacion_boleroRoutes_1 = __importDefault(require("./routes/generacion_boleroRoutes"));
 const RegisterRoutes_1 = __importDefault(require("./routes/userRoutes/RegisterRoutes"));
 const loginRoutes_1 = __importDefault(require("./routes/userRoutes/loginRoutes"));
+const ruta_1 = __importDefault(require("./routes/userRoutes/ruta"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -30,6 +31,7 @@ class Server {
         this.app.use('/boletos', generacion_boleroRoutes_1.default);
         this.app.use('/register', RegisterRoutes_1.default);
         this.app.use('/login', loginRoutes_1.default);
+        this.app.use('/crear_ruta', ruta_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

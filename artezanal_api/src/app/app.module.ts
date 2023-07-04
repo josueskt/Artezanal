@@ -14,7 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ListRutasComponent } from './administracion/users-register/list-rutas/list-rutas.component';
 import { HistoryReservasComponent } from './history-reservas/history-reservas.component';
-import { AddOfertasComponent } from './administracion/users-register/add-ofertas/add-ofertas.component';
+
 import { AddRutasComponent } from './administracion/users-register/add-rutas/add-rutas.component';
 import { FacturaComponent } from './administracion/users-register/Factura/Factura.component';
 import { LoginComponent } from './login/login.component';
@@ -48,7 +48,7 @@ LoginComponent,
     UsersRegisterComponent,
     AddRutasComponent,
     ListRutasComponent,
-    AddOfertasComponent,
+
     QrComponent,
     PerfilComponent
   ],

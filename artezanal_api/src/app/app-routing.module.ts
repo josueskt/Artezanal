@@ -13,7 +13,7 @@ import { FacturaComponent } from './administracion/users-register/Factura/Factur
 import { UsersRegisterComponent } from './administracion/users-register/users-register.component';
 import { AddRutasComponent } from './administracion/users-register/add-rutas/add-rutas.component';
 import { ListRutasComponent } from './administracion/users-register/list-rutas/list-rutas.component';
-import { AddOfertasComponent } from './administracion/users-register/add-ofertas/add-ofertas.component';
+
 import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
 
@@ -30,13 +30,13 @@ const routes : Routes = [
 
 
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
-  {path: 'list-sitios', component: ListSitiosComponent },
+  {path: 'crear-sitio', component: ListSitiosComponent },
   {path: 'history-reservas', component: HistoryReservasComponent },
   {path: 'Factura', component: FacturaComponent },
   {path: 'users-register', component: UsersRegisterComponent },
   {path: 'add-rutas', component: AddRutasComponent},
   {path: 'list-rutas', component: ListRutasComponent},
-  {path: 'add-ofertas', component: AddOfertasComponent},
+
   {path: 'perfil',component:PerfilComponent}
 ];
 

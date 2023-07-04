@@ -19,7 +19,7 @@ const insertarRuta = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const { longitud, latitud, nombre, informacion, logo } = req.body;
     try {
         // Consulta SQL de inserción
-        const query = 'INSERT INTO rutas (longitud, latitud, nombre, informacion, logo) VALUES ($1, $2, $3, $4, $5)';
+        const query = 'INSERT INTO ruta.sitios (longitud, latitude, nombre, informacion, logo) VALUES ($1, $2, $3, $4, $5)';
         // Ejecutar la consulta con los parámetros proporcionados
         yield database_1.default.query(query, [longitud, latitud, nombre, informacion, logo]);
         // Datos insertados exitosamente

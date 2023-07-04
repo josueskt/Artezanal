@@ -1,23 +1,31 @@
-<form [formGroup]="rutaForm" (ngSubmit)="enviarFormulario()">
-  <div>
-    <label for="longitud">Longitud:</label>
-    <input id="longitud" type="text" formControlName="longitud">
+
+
+<div class="contenedor bg-dark clas row p-3">
+<div class="col" id="map"></div>
+
+<form class="col" [formGroup]="rutaForm" (ngSubmit)="enviarFormulario()">
+  <div class="nput-group mb-3">
+
+    <input id="longitud" type="text" placeholder="longitud" formControlName="longitud">
   </div>
-  <div>
-    <label for="latitud">Latitud:</label>
-    <input id="latitud" type="text" formControlName="latitud">
+  <div class="nput-group mb-3">
+
+    <input id="latitud" type="text" placeholder="latitude" formControlName="latitud">
   </div>
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input id="nombre" type="text" formControlName="nombre">
+  <div class="nput-group mb-3">
+
+    <input id="nombre" type="text" placeholder="Nombre" formControlName="nombre">
   </div>
-  <div>
-    <label for="informacion">Información:</label>
-    <textarea id="informacion" rows="5" formControlName="informacion"></textarea>
+  <div class="nput-group mb-3">
+
+    <textarea id="informacion" rows="5" placeholder="Informacion" formControlName="informacion"></textarea>
   </div>
-  <div>
-    <label for="logo">URL del logo:</label>
-    <input id="logo" type="text" formControlName="logo">
+  <div class="nput-group mb-3">
+
+    <input id="logo" type="text" placeholder="URL del logo:" formControlName="logo">
   </div>
-  <button type="submit">Enviar</button>
+  <button class="btn-lg text-center btn-warning" type="submit">Enviar</button>
 </form>
+</div>
+
+

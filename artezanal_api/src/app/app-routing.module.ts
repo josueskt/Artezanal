@@ -18,7 +18,7 @@ import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 
-
+const token = localStorage.getItem('token');
 const routes : Routes = [
 
   {path: 'home', component: HomeComponent , pathMatch: 'full'},

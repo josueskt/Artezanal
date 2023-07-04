@@ -10,11 +10,14 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
+    console.log( email, password);
     const data = {
       email,
       password
     };
+   const url = `${this.apiUrl}/login`; // URL para el registro de usuario
+   return this.http.post(url, data);
 
-    return this.http.post<any>(`${this.apiUrl}/login`, data);
+
   }
 }

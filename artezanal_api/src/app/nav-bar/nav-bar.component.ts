@@ -10,7 +10,7 @@ export class NavBarComponent {
  user_name = "josue skt";
  id_user = null;
  iniciado = false;
-
+ token = localStorage.getItem('token');
 
 
 

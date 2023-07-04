@@ -1,123 +1,119 @@
- <head>
+<head>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
 
 
   <div class="background"></div>
   <div class="container">
-      <div class="item">
-          <h2 class="logo"><i class='bx bxs-user'></i>Artezanal</h2>
-          <div class="text-item">
-              <h2>Bienvenido! <br><span>
-                  
-              </span></h2>
-              <p>Aqui puedes ver un ejemplo de como funciona un ingraso y registro a la cuenta de X persona</p>
-              <div class="social-icon">
-                  <a href="#"><i class='bx bxl-facebook'></i></a>
-                  <a href="#"><i class='bx bxl-twitter'></i></a>
-                  <a href="#"><i class='bx bxl-youtube'></i></a>
-                  <a href="#"><i class='bx bxl-instagram'></i></a>
-                  <a href="#"><i class='bx bxl-linkedin'></i></a>
-              </div>
-          </div>
+    <div class="item">
+      <h2 class="logo"><i class='bx bxs-user'></i>Artezanal</h2>
+      <div class="text-item">
+        <h2>Bienvenido! <br><span>
+
+          </span></h2>
+        <p>Aqui puedes ver un ejemplo de como funciona un ingraso y registro a la cuenta de X persona</p>
+        <div class="social-icon">
+          <a href="#"><i class='bx bxl-facebook'></i></a>
+          <a href="#"><i class='bx bxl-twitter'></i></a>
+          <a href="#"><i class='bx bxl-youtube'></i></a>
+          <a href="#"><i class='bx bxl-instagram'></i></a>
+          <a href="#"><i class='bx bxl-linkedin'></i></a>
+        </div>
       </div>
-      <div class="login-section ">
-          <div class="form-box login">
-              <form action="">
-                  <h2>Ingresar</h2>
-                  <div class="input-box">
-                      <span class="icon"><i class='bx bxs-envelope'></i></span>
-                      <input type="email" required>
-                      <label >Email</label>
-                  </div>
-                  <div class="input-box">
-                      <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
-                      <input type="password"  required>
-                      <label>Clave</label>
-                  </div>
-                  <div class="remember-password">
-                      <label for=""><input type="checkbox">Recuerda</label>
-                      <a href="#">Olvidaste tu clave</a>
-                  </div>
-                  <button class="btn">Ingreso</button>
-                  <div class="create-account">
-
-                      <p>Crear una cuenta nueva? <button class=" btn btn-lg register-link">resgistrar</button></p>
-                  </div>
-              </form>
+    </div>
+    <div class="login-section ">
+      <div class="form-box login">
+        <form (submit)="login()">
+          <h2>Ingresar</h2>
+          <div class="input-box">
+            <span class="icon"><i class='bx bxs-envelope'></i></span>
+            <input type="email" id="email" [(ngModel)]="email" name="email" required>
+            <label>Email</label>
           </div>
+          <div class="input-box">
+            <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+            <input type="password" id="password" [(ngModel)]="password" name="password" required>
 
-          <div class="form-box register ">
-              <form (ngSubmit)="registerUser()">
-
-                  <h2>Reguistro</h2>
-
-                  <div class="input-box">
-                      <span class="icon"><i class='bx bxs-user'></i></span>
-                      <input type="text" class="form-control" id="validationCustomUsername"  [(ngModel)]="usuario.foto" name="foto" required>
-                      <label >imagen</label>
-                  </div>
-                  <div class="input-box">
-                    <span class="icon"><i class='bx bxs-user'></i></span>
-                    <input type="text"[(ngModel)]="usuario.apellido" name="apellido" required>
-                    <label >imagen</label>
-                </div>
-                <div class="input-box">
-                  <span class="icon"><i class='bx bxs-user'></i></span>
-                  <input type="text"  [(ngModel)]="usuario.nombre" name="nombre" required>
-                  <label >imagen</label>
-              </div>
-                  <div class="input-box">
-                      <span class="icon"><i class='bx bxs-envelope'></i></span>
-                      <input type="email" [(ngModel)]="usuario.correo" name="correo" required>
-                      <label >Email</label>
-                  </div>
-                  <div class="input-box">
-                      <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
-                      <input type="password"  [(ngModel)]="usuario.password" name="password" required>
-                      <label>Clave</label>
-                  </div>
-                  <div class="remember-password">
-                      <label for=""><input type="checkbox">Estoy de acuerdo con los terminos y condiciones</label>
-                  </div>
-                  <button class="btn">Ingreso</button>
-
-                  <div class="create-account">
-
-                      <p>Tienes una cuenta?   <button class="login-link btn btn-outline-dark"> Ingresar</button></p>
-                  </div>
-              </form>
-              <div *ngIf="registroExitoso" class="mensaje-exitoso">Usuario registrado exitosamente.</div>
-
-<!-- Mostrar mensaje de error en el registro -->
-              <div *ngIf="registroError" class="mensaje-error">El usuario ya está registrado.</div>
+            <label>Clave</label>
           </div>
+          <div class="remember-password">
+            <label for=""><input type="checkbox">Recuerda</label>
+            <a href="#">Olvidaste tu clave</a>
+          </div>
+          <button class="btn" type="submit">Iniciar sesión</button>
+          <div class="create-account">
 
+            <p>Crear una cuenta nueva? <button class=" btn btn-lg register-link">resgistrar</button></p>
+          </div>
+        </form>
       </div>
+
+      <div class="form-box register ">
+        <form (ngSubmit)="registerUser()">
+
+          <h2>Reguistro</h2>
+
+          <div class="input-box">
+            <span class="icon"><i class='bx bxs-user'></i></span>
+            <input type="text" class="form-control" id="validationCustomUsername" [(ngModel)]="usuario.foto" name="foto"
+              required>
+            <label>imagen</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class='bx bxs-user'></i></span>
+            <input type="text" [(ngModel)]="usuario.apellido" name="apellido" required>
+            <label>imagen</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class='bx bxs-user'></i></span>
+            <input type="text" [(ngModel)]="usuario.nombre" name="nombre" required>
+            <label>imagen</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class='bx bxs-envelope'></i></span>
+            <input type="email" [(ngModel)]="usuario.correo" name="correo" required>
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+            <input type="password" [(ngModel)]="usuario.password" name="password" required>
+            <label>Clave</label>
+          </div>
+          <div class="remember-password">
+            <label for=""><input type="checkbox">Estoy de acuerdo con los terminos y condiciones</label>
+          </div>
+          <button class="btn">Ingreso</button>
+
+          <div class="create-account">
+
+            <p>Tienes una cuenta? <button class="login-link btn btn-outline-dark"> Ingresar</button></p>
+          </div>
+        </form>
+        <div *ngIf="registroExitoso" class="mensaje-exitoso">Usuario registrado exitosamente.</div>
+
+        <!-- Mostrar mensaje de error en el registro -->
+        <div *ngIf="registroError" class="mensaje-error">El usuario ya está registrado.</div>
+      </div>
+
+    </div>
 
   </div>
 
 
-<script>
-  const loginsec = document.querySelector('.login-section');
-  const loginlink = document.querySelector('.login-link');
-  const registerlink = document.querySelector('.register-link');
+  <script>
+    const loginsec = document.querySelector('.login-section');
+    const loginlink = document.querySelector('.login-link');
+    const registerlink = document.querySelector('.register-link');
 
-  registerlink.addEventListener('click', () => {
-    loginsec.classList.add('active');
-  });
+    registerlink.addEventListener('click', () => {
+      loginsec.classList.add('active');
+    });
 
-  loginlink.addEventListener('click', () => {
-    loginsec.classList.remove('active');
-  });
-</script>
+    loginlink.addEventListener('click', () => {
+      loginsec.classList.remove('active');
+    });
+  </script>
 
 </body>
-
-
-
-
-
-
-

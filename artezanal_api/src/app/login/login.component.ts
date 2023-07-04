@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterLoginService } from './register-login.service';
 import { Usuario } from '../models/register';
 import { AuthenticationService } from './auntentification.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-registro',
@@ -17,7 +20,13 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private userService: RegisterLoginService , private authService: AuthenticationService) { }
+
+  constructor(private userService: RegisterLoginService ,private router: Router , private authService: AuthenticationService ,private http: HttpClient) { }
+
+
+
+
+
 
   ngOnInit() {
     const loginsec = document.querySelector('.login-section');
@@ -58,28 +67,35 @@ export class LoginComponent implements OnInit {
       return ;
     }
   }
-
   login() {
-    this.authService.login(this.email, this.password)
-      .subscribe(
-        response => {
-          // La solicitud fue exitosa, se recibe el token y el usuario desde el servidor
+    this.authService.login(this.email, this.password).subscribe(
+      (response: any) => {
+        console.log(response);
+        if (response && response.token) {
           const token = response.token;
-          const user = response.user;
+          console.log(token);
 
-          // Guardar el token y el usuario en el almacenamiento local o en un servicio de autenticación
-          // ...
+          // Guardar el token en el almacenamiento local (localStorage)
+          localStorage.setItem('token', token);
 
-          // Redirigir a la página de inicio o a otra página de la aplicación
-          // ...
-        },
-        error => {
-          // Hubo un error en la solicitud
-          console.error(error);
-          // Manejar el error adecuadamente en tu aplicación
-          // ...
+
+          // Registro exitoso
+          this.registroExitoso = true;
+          this.registroError = false;
+          this.router.navigate(['/home']);
+        } else {
+          console.log("Respuesta inválida del servidor");
+          // Error en la respuesta del servidor
+          this.registroExitoso = false;
+          this.registroError = true;
         }
-      );
+      },
+      error => {
+        console.log(error);
+        // Error en el registro
+        this.registroExitoso = false;
+        this.registroError = true;
+      });
   }
 }
 

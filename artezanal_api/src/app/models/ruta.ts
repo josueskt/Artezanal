@@ -7,3 +7,13 @@ export interface ruta_model {
     duracion:number,
     inf_adi:string
 }
+export interface sitios{
+  id_siitos:number,
+  latitude:number,
+  longitude:number,
+  nombre:string,
+  information:string,
+  logo:string,
+
+}
+

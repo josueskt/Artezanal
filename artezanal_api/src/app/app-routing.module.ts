@@ -19,6 +19,7 @@ import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 
 const token = localStorage.getItem('token');
+
 const routes : Routes = [
 
   {path: 'home', component: HomeComponent , pathMatch: 'full'},
@@ -26,6 +27,8 @@ const routes : Routes = [
   {path: 'ruta', component:QrComponent , pathMatch: 'full'},
   {path: 'rutas/:id', component: MapComponent},
   {path: 'nosotros', component: NosotrosComponent},
+
+
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
   {path: 'list-sitios', component: ListSitiosComponent },
   {path: 'history-reservas', component: HistoryReservasComponent },

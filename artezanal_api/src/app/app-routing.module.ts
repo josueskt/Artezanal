@@ -22,7 +22,7 @@ const token = localStorage.getItem('token');
 
 const routes : Routes = [
 
-  {path: 'home', component: HomeComponent , pathMatch: 'full'},
+  {path: 'home', component: HomeComponent },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'ruta', component:QrComponent , pathMatch: 'full'},
   {path: 'rutas/:id', component: MapComponent},

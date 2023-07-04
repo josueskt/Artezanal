@@ -26,18 +26,21 @@
 
 				<div class="nav-item dropdown">
 					<div  *ngIf="!iniciado ">
-						<a routerLink="/login"> <button class=" btn sing-up me-3 "  value="sign up">sign up</button></a>
+						<a routerLink="/login"  > <button *ngIf="!isLoge" class=" btn sing-up me-3 "  value="sign up">entrar</button></a>
+						<a > <button class=" btn sing-up me-3 " *ngIf="isLoge" (click)="logout()" >salir</button></a>
 
 					</div>
 					<div *ngIf="iniciado ">
 						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action text-white">
-							 {{user_name}} </a>
+              {{ nombreUser }}
+            </a>
+
 					<div class="dropdown-menu">
 						<a routerLink="/perfil" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
 						<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Mis Boletos</a>
 
 						<div class="dropdown-divider"></div>
-						<a routerLink="/login" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+						<a routerLink="/login" class="dropdown-item" (click)="logout()"><i class="material-icons">&#xE8AC;</i> Logout</a>
 					</div>
 					</div>
 					<!--

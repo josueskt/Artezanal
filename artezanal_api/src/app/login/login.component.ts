@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserNameService } from '../user-name-service.service';
 import { RegisterLoginService } from './register-login.service';
 import { Usuario } from '../models/register';
 import { AuthenticationService } from './auntentification.service';
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   registroError: boolean = false; // Variable para controlar el estado del registro con error
   email: string;
   password: string;
+  userNameService: any;
 
 
   constructor(private userService: RegisterLoginService ,private router: Router , private authService: AuthenticationService ,private http: HttpClient) { }
@@ -78,16 +79,29 @@ export class LoginComponent implements OnInit {
           // Guardar el token en el almacenamiento local (localStorage)
           localStorage.setItem('token', token);
 
+          // Obtener el nombre de usuario desde la respuesta del servidor
+          const userName = response.user_name;
+
+          // Establecer el nombre de usuario en el servicio compartido
+
 
           // Registro exitoso
           this.registroExitoso = true;
+
           this.registroError = false;
-          this.router.navigate(['/home']);
+
+
+          this.router.navigateByUrl('/home')
+      .then(() => {
+        // Recargar la página después de la redirección
+        window.location.reload();
+      });
         } else {
           console.log("Respuesta inválida del servidor");
           // Error en la respuesta del servidor
           this.registroExitoso = false;
           this.registroError = true;
+
         }
       },
       error => {
@@ -95,7 +109,8 @@ export class LoginComponent implements OnInit {
         // Error en el registro
         this.registroExitoso = false;
         this.registroError = true;
-      });
+      }
+    );
   }
 }
 

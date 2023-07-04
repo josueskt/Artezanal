@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-
+    
 
 
     this.rutas.getRutas().subscribe(

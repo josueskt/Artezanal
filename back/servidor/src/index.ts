@@ -35,7 +35,7 @@ this.app.use('/',indexRoutes);
 this.app.use('/home',HomeRoute); 
 this.app.use('/boletos',g_bolet);
 this.app.use('/register' , logi);
-this.app.use('/login',loge);
+this.app.use('/login', loge);
 
 
 

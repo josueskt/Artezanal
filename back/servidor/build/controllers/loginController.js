@@ -12,31 +12,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginController = void 0;
+exports.login = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const database_1 = __importDefault(require("../database")); // Importa el cliente de conexión a la base de datos
-const loginController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email, password } = req.body;
     try {
-        const { correo, password } = req.body;
-        // Verificar si el usuario existe en la base de datos
-        const result = yield database_1.default.query('SELECT * FROM usuarios WHERE correo = $1', [correo]);
+        // Verificar las credenciales en la base de datos
+        const result = yield database_1.default.query('SELECT u.nombre, u.apellido, u.foto, u.correo, p.password FROM usuarios.usuarios AS u JOIN usuarios.historial_contraseñas AS h ON h.fk_user = u.id_user JOIN usuarios.pasword_user AS p ON h.fk_password = p.id_password AND u.correo = $1', [email]);
         const user = result.rows[0];
         if (!user) {
             return res.status(404).json({ message: 'Usuario no encontrado' });
         }
-        // Verificar la contraseña
-        const validPassword = yield bcrypt_1.default.compare(password, user.password);
-        if (!validPassword) {
-            return res.status(400).json({ message: 'Contraseña incorrecta' });
+        // Comparar la contraseña proporcionada por el usuario con la clave hasheada de la base de datos
+        const isValidPassword = yield bcrypt_1.default.compare(password, user.password);
+        if (!isValidPassword) {
+            return res.status(401).json({ message: 'Credenciales inválidas' });
         }
-        // Generar el token de autenticación
-        const token = jsonwebtoken_1.default.sign({ id: user.id }, 'secretKey', { expiresIn: '1h' });
-        res.json({ token });
+        // Generar un token de autenticación con los datos del usuario
+        const token = jsonwebtoken_1.default.sign({ id: user.id, email: user.email }, 'secretKey');
+        // Enviar el token como parte de la respuesta
+        res.json({ token, user });
     }
     catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Error en el servidor' });
     }
 });
-exports.loginController = loginController;
+exports.login = login;

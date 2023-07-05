@@ -1,27 +1,26 @@
 <section class="vh-100" style="background-size: cover;background-repeat: no-repeat; background-image:url('https://www.ruta0.com/pix/una-ruta.jpg');">
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 
-<div class="container">
-  <div class="header">
-    <h1>Rutas de Viaje</h1>
-    <div class="extra-style">
-      <a routerLink="/add-rutas"><button class="beer-button"> </button></a>
+  <div class="container">
+    <div class="header">
+      <h1>Rutas de Viaje</h1>
+      <div class="extra-style">
+        <a routerLink="/add-rutas"><button class="beer-button"> </button></a>
+      </div>
     </div>
+    <ul>
+        <li *ngFor="let route of routes">
+            <span class="route-name">{{route.name}}</span>
+            <p class="route-distance">Precio:{{route.distance}} </p>
+            <p class="route-description">Informacion Adicional:{{route.description}}</p>
+            <p class="route-duration">Duración:{{route.duration}}</p>
+            <p class="route-image">Imagen:{{route.image}}</p>
+
+            <div class="btn-group">
+                <button class="btn btn-delete" (click)="deleteRoute()">Eliminar</button>
+            </div>
+        </li>
+    </ul>
   </div>
-  <ul>
-      <li *ngFor="let route of routes">
-          <span class="route-name">{{route.name}}</span>
-          <p class="route-distance">Precio:{{route.distance}} </p>
-          <p class="route-description">Informacion Adicional:{{route.description}}</p>
-          <p class="route-duration">Duración:{{route.duration}}</p>
-          <p class="route-image">Imagen:{{route.image}}</p>
-
-          <div class="btn-group">
-              <button class="btn btn-delete" (click)="deleteRoute()">Eliminar</button>
-          </div>
-      </li>
-  </ul>
-</div>
-

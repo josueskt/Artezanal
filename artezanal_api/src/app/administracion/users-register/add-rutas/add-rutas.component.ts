@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { RutasService } from '../../../../../../back/servidor/src/rutas.service';
-import { Ruta } from '../../../../../../back/servidor/src/ruta.interface';  // Recuerda ajustar la ruta de importación según corresponda
+
 
 @Component({
   selector: 'app-add-rutas',
@@ -8,18 +7,17 @@ import { Ruta } from '../../../../../../back/servidor/src/ruta.interface';  // R
   styleUrls: ['./add-rutas.component.css']
 })
 export class AddRutasComponent {
+  routeDuration: number;
   routeName = '';
   routeDistance = '';
+  routeDifficulty = '';
   routeDescription = '';
-  routeDuration = '';
-  routeDifficulty = '';  // Asegúrate de que esto esté definido en tu componente
   displayImage = '';
+  routes = [];
 
-  constructor(private rutasService: RutasService) {}
-
-  onFileChange(event) {
+  onFileChange(event: Event) {
     const reader = new FileReader();
-    if(event.target.files?.length) {
+    if (event.target && event.target instanceof HTMLInputElement && event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => {
@@ -28,23 +26,26 @@ export class AddRutasComponent {
     }
   }
 
+
   onSubmit() {
-    if (this.routeName && this.routeDistance && this.routeDuration && this.routeDescription && this.routeDifficulty) {
-      const newRoute: Ruta = {
+    if (this.routeName && this.routeDistance && this.routeDifficulty && this.routeDescription) {
+      this.routes.push({
         routeName: this.routeName,
         routeDistance: this.routeDistance,
-        routeDuration: this.routeDuration,
-        routeDescription: this.routeDescription,
-        routeImage: this.displayImage,
-        routeDifficulty: this.routeDifficulty  // Asegúrate de agregarlo si es requerido
-      };
-      this.rutasService.addRuta(newRoute);
+        routeDifficulty: this.routeDifficulty,
+        routeDescription: this.routeDescription
+      });
       this.routeName = '';
       this.routeDistance = '';
-      this.routeDuration = '';
-      this.routeDescription = '';
       this.routeDifficulty = '';
-      this.displayImage = '';
+      this.routeDescription = '';
+    }
+  }
+
+  deleteRoute(route) {
+    const index = this.routes.indexOf(route);
+    if (index > -1) {
+      this.routes.splice(index, 1);
     }
   }
 }

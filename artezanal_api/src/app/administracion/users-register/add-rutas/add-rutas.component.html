@@ -1,39 +1,39 @@
 <section class="vh-100" style="background-size: cover;background-repeat: no-repeat; background-image:url('https://www.ruta0.com/pix/una-ruta.jpg');">
-<div class="container">
-  <div class="row">
-    <div class="col-lg-5 mb-4">
-      <div class="card p-4 shadow bg-white rounded">
-        <h2 class="text-center mb-4">Agregar Ruta</h2>
-        <form (ngSubmit)="onSubmit()">
-          <div class="mb-3">
-            <label for="route-name" class="form-label">Nombre de la Ruta</label>
-            <input type="text" id="route-name" [(ngModel)]="routeName" name="routeName" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="route-distance" class="form-label">Precio</label>
-            <input type="number" id="route-distance" [(ngModel)]="routeDistance" name="routeDistance" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="route-description" class="form-label">Informacion Adicional</label>
-            <textarea id="route-description" [(ngModel)]="routeDescription" name="routeDescription" class="form-control" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="route-duration" class="form-label">Duración</label>
-            <input type="decimal" id="route-duration" [(ngModel)]="routeDuration" name="routeDuration" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="route-image" class="form-label">Imagen de la Ruta</label>
-            <input type="file" id="route-image" (change)="onFileChange($event)" accept="image/*" class="form-control" required>
-          </div>
-          <a routerLink="/list-rutas"><button type="submit" class="btn btn-primary w-100 mt-3">Agregar Ruta</button></a>
-        </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-4">
+        <div class="card p-4 shadow bg-white rounded">
+          <h2 class="text-center mb-4">Agregar Ruta</h2>
+          <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="route-name" class="form-label">Nombre de la Ruta</label>
+              <input type="text" id="route-name" [(ngModel)]="routeName" name="routeName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="route-distance" class="form-label">Precio</label>
+              <input type="number" id="route-distance" [(ngModel)]="routeDistance" name="routeDistance" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="route-description" class="form-label">Informacion Adicional</label>
+              <textarea id="route-description" [(ngModel)]="routeDescription" name="routeDescription" class="form-control" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="route-duration" class="form-label">Duración</label>
+              <input type="decimal" id="route-duration" [(ngModel)]="routeDuration" name="routeDuration" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="route-image" class="form-label">Imagen de la Ruta</label>
+              <input type="file" id="route-image" (change)="onFileChange($event)" accept="image/*" class="form-control" required>
+            </div>
+            <a routerLink="/list-rutas"><button type="submit" class="btn btn-primary w-100 mt-3">Agregar Ruta</button></a>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="col-lg-5 mb-4">
-      <div class="card p-4 shadow bg-white rounded h-100">
-        <h2 class="text-center mb-4">Vista previa</h2>
-        <img [src]="displayImage" class="img-fluid rounded" alt="Imagen de la Ruta">
+      <div class="col-lg-5 mb-4">
+        <div class="card p-4 shadow bg-white rounded h-100">
+          <h2 class="text-center mb-4">Vista previa</h2>
+          <img [src]="displayImage" class="img-fluid rounded" alt="Imagen de la Ruta">
+        </div>
       </div>
     </div>
   </div>
-</div>

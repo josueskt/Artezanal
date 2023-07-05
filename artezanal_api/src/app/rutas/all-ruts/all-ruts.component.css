@@ -1,0 +1,72 @@
+.login{
+  display: inline-block;
+  padding-right: 5px !important;
+}
+.login-text{
+margin: 0;
+}
+a{ text-decoration: none}
+.rut>h1{
+margin: 0;
+/* Estilos de la ruta */
+}
+.rut{
+margin-top: 10px;
+border-radius: 5px;
+border: solid 4px rgb(0, 0, 0);
+}
+
+
+.form-inline {
+display: inline-block;
+}
+
+.inf-ruta {
+margin: 0;
+
+}
+/* responsive */
+
+@media (min-width: 1200px){
+.form-inline .input-group {
+  width: 300px;
+  margin-left: 30px;
+
+
+}
+
+.ruta{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.rutas{
+
+  margin: 0 150px;
+}
+}
+@media (max-width: 1199px){
+.rutas{
+
+  margin: 0 5px;
+}
+.imagen-ruta{
+  max-width: 400px;
+  margin: auto;
+}
+.form-inline {
+  display: block;
+  margin-bottom: 10px;
+}
+.input-group {
+  width: 100%;
+}
+}
+
+.ruta{
+  background-color: rgb(209, 159, 93);
+
+}
+
+.inf-ruta{
+padding: 5%;
+}

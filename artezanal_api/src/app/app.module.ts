@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { RouterModule } from '@angular/router';
 
 import { HistoryReservasComponent } from './history-reservas/history-reservas.component';
 
@@ -25,7 +26,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 
 import { MapComponent } from './usuario/geolocalisacion/map/map.component';
 import { HttpClientModule } from '@angular/common/http';
-import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
+import { AllRutsComponent } from './rutas/all-ruts/all-ruts.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
 import { RutaService } from './administracion/users-register/list-sitios/rutaService';
 
@@ -49,7 +50,7 @@ LoginComponent,
     AddRutasComponent,
 
 
-    QrComponent,
+    AllRutsComponent,
     PerfilComponent
   ],
   imports: [
@@ -58,8 +59,8 @@ LoginComponent,
     AppRoutingModule,
     GoogleMapsModule,
     HttpClientModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    RouterModule
 
   ],
   providers: [

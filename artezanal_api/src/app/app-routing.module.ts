@@ -14,7 +14,7 @@ import { UsersRegisterComponent } from './administracion/users-register/users-re
 import { AddRutasComponent } from './administracion/users-register/add-rutas/add-rutas.component';
 
 
-import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
+import { AllRutsComponent  } from './rutas/all-ruts/all-ruts.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 
@@ -24,7 +24,7 @@ const routes : Routes = [
 
   {path: 'home', component: HomeComponent },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'ruta', component:QrComponent , pathMatch: 'full'},
+  {path: 'ruta', component:AllRutsComponent  , pathMatch: 'full'},
   {path: 'rutas/:id', component: MapComponent},
   {path: 'nosotros', component: NosotrosComponent},
 

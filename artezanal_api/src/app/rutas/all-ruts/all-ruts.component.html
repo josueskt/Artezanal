@@ -1,1 +1,48 @@
-<p>all-ruts works!</p>
+<section>
+  <h1 class="text-white text-center bg-dark">Rutas</h1>
+</section>
+
+
+<div class="rutas" *ngFor="let ruta of games">
+  <div class="rut">
+    <h1 class="text-center text-warning bg-dark">{{ruta.nombre}}</h1>
+    <div class="ruta">
+
+      <div class="imagen-ruta"> <img class=" img-fluid rounded mx-auto "
+          src="https://th.bing.com/th/id/R.fc856b99a12a03f0a4ef75c822a6f6bc?rik=69G5QTWB6ZXMQw&riu=http%3a%2f%2f4.bp.blogspot.com%2f-7cS_nnVwogw%2fUbzELk4hjoI%2fAAAAAAAADJg%2fymcYCRpSBck%2fs1600%2fGin_Bares.jpg&ehk=EX%2fOaJ5gofkcf4AU8thm501W1zyUDW2BDt5zoLwEfKE%3d&risl=&pid=ImgRaw&r=0" alt="">
+      </div>
+      <div class="text-white ">
+        <hr>
+        <p class="  ">{{ruta.inf_adi}}</p>
+
+
+        <hr>
+        <div class="precio text-center">
+          <h4 class=""> {{ruta.precio}}$</h4>
+
+          <!-- poner el id en el boton para que cargue la ruta   -->
+          <a [routerLink]="'/rutas/' + ruta.id_ruta" class="btn btn-lg  btn-light active" style=" position:relative;" data-toggle="button" aria-pressed="false">Ver Informacion de la ruta</a>
+
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<div class="sucursa-registrada">
+
+</div>

@@ -31,7 +31,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return res.status(401).json({ message: 'Credenciales inválidas' });
         }
         // Generar un token de autenticación con los datos del usuario
-        const token = jsonwebtoken_1.default.sign({ id: user.id, email: user.email }, 'secretKey');
+        const token = jsonwebtoken_1.default.sign({ id: user.id, email: user.email, nombre: user.nombre }, 'secretKey');
         // Enviar el token como parte de la respuesta
         res.json({ token, user });
     }

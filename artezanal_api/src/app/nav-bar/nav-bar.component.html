@@ -1,20 +1,21 @@
 <body>
-	<nav class="navbar navbar-expand-xl navbar-light ">
-		<a href="#" class="navbar-brand"><img src="../../assets/img/lgo.png" width="200px" alt=""></a>
-		<button type="button" class="navbar-toggler bg-white" data-toggle="collapse" data-target="#navbarCollapse">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<!-- Collection of nav links, forms, and other content for toggling -->
-		<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-			<div class="navbar-nav">
-				<!--<a routerLink="/home" class="nav-item nav-link active text-white">Home</a>
+  <h1></h1>
+  <nav class="navbar navbar-expand-xl navbar-light ">
+    <a href="#" class="navbar-brand"><img src="../../assets/img/lgo.png" width="200px" alt=""></a>
+    <button type="button" class="navbar-toggler bg-white" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+      <div class="navbar-nav">
+        <!--<a routerLink="/home" class="nav-item nav-link active text-white">Home</a>
 				<a routerLink="/ruta" class="nav-item nav-link text-white">Rutas</a>
 
 				<a routerLink="/nosotros" class="nav-item nav-link text-white">Nosotros</a>-->
 
 
-			</div>
-			<!--
+      </div>
+      <!--
 		<form class="navbar-form form-inline">
 			<div class="input-group search-box">
 				<input type="text" id="search" class="form-control" placeholder="Search by Name">
@@ -22,33 +23,36 @@
 			</div>
 		</form>
         -->
-			<div class="navbar-nav ml-auto">
+      <div class="navbar-nav ml-auto">
 
-				<div class="nav-item dropdown">
-					<div  *ngIf="!iniciado ">
-						<a routerLink="/login"  > <button *ngIf="!isLoge" class=" btn sing-up me-3 "  value="sign up">entrar</button></a>
-						<a > <button class=" btn sing-up me-3 " *ngIf="isLoge" (click)="logout()" >salir</button></a>
+        <div class="nav-item dropdown">
+          <div *ngIf="!nombreUser ">
+            <a routerLink="/login"> <button class=" btn sing-up me-3 " value="sign up">entrar</button></a>
 
-					</div>
-					<div *ngIf="iniciado ">
-						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action text-white">
-              <ul><li *ngIf="isAdmin"> {{ user.nombre }}</li></ul>
+
+          </div>
+          <div *ngIf="nombreUser  " class="bg-dark">
+            <a href="#" data-toggle="dropdown" class="nav-link  user-action text-white">
+              <div *ngIf="isAdmin"> Bienvenido {{ nombreUser }}</div>
             </a>
 
-					<div class="dropdown-menu">
-						<a routerLink="/perfil" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
-						<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Mis Boletos</a>
+            <div class="dropdown-menu ">
+              <a routerLink="/perfil" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+              <a routerLink="/add-rutas" class="dropdown-item"><i class="fa fa-user-o"></i> agregar ruta</a>
+              <a routerLink="/crear-sitio" class="dropdown-item"><i class="fa fa-user-o"></i> agregar sitio</a>
+              <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Mis Boletos</a>
 
-						<div class="dropdown-divider"></div>
-						<a routerLink="/login" class="dropdown-item" (click)="logout()"><i class="material-icons">&#xE8AC;</i> Logout</a>
-					</div>
-					</div>
-					<!--
+              <div class="dropdown-divider"></div>
+              <a routerLink="/login" class="dropdown-item" (click)="logout()"><i class="material-icons">&#xE8AC;</i>
+                Logout</a>
+            </div>
+          </div>
+          <!--
 
 					-->
-				</div>
-			</div>
-		</div>
-	</nav>
+        </div>
+      </div>
+    </div>
+  </nav>
 
 </body>

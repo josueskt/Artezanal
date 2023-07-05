@@ -88,6 +88,8 @@ export class AddRutasComponent implements OnInit {
 
 
 
+    }else {
+      alert('faltan datos');
     }
 
 

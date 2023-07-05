@@ -6,25 +6,28 @@
 <form class="col" [formGroup]="rutaForm" (ngSubmit)="enviarFormulario()">
   <div class="nput-group mb-3">
 
-    <input id="longitud" type="text" placeholder="longitud" formControlName="longitud">
+    <input  class="form-control"  id="longitud" type="text" placeholder="longitud" formControlName="longitud">
   </div>
   <div class="nput-group mb-3">
 
-    <input id="latitud" type="text" placeholder="latitude" formControlName="latitud">
+    <input class="form-control"  id="latitud" type="text" placeholder="latitude" formControlName="latitud">
   </div>
   <div class="nput-group mb-3">
 
-    <input id="nombre" type="text" placeholder="Nombre" formControlName="nombre">
+    <input class="form-control"  id="nombre" type="text" placeholder="Nombre" formControlName="nombre">
   </div>
   <div class="nput-group mb-3">
 
-    <textarea id="informacion" rows="5" placeholder="Informacion" formControlName="informacion"></textarea>
+    <textarea class="form-control"  id="informacion" rows="5" placeholder="Informacion" formControlName="informacion"></textarea>
   </div>
   <div class="nput-group mb-3">
 
-    <input id="logo" type="text" placeholder="URL del logo:" formControlName="logo">
+    <input class="form-control"  id="logo" type="text" placeholder="URL del logo:" formControlName="logo">
   </div>
   <button class="btn-lg text-center btn-warning" type="submit">Enviar</button>
+  <button class="btn-lg text-center" routerLink="/add-rutas">  Crear Ruta</button>
+
+
 </form>
 </div>
 

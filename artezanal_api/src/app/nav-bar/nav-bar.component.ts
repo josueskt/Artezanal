@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserNameService } from '../user-name-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,24 +12,30 @@ export class NavBarComponent {
   user_name: string;
   id_user = null;
   iniciado: true;
-  token = localStorage.getItem('token');
+
   user: any;
   isLoge=true;
   nombreUser='';
- constructor(private userNameService: UserNameService) {
+ constructor(private userNameService: UserNameService, private router: Router) {
 
  }
  isAdmin       = true;
  ngOnInit() {
-  this.isAdmin = this.userNameService.isAdmin() ?? false;
-  const token = localStorage.getItem('token');
-    const userData = localStorage.getItem('usurio');
 
-    if (token && userData) {
-      this.user = JSON.parse(userData);
-    }
+const a =  this.userNameService.getNombreUsuario();
+this.nombreUser = a
+
+
+
+
+ console.log(a);
+  console.log(this.nombreUser);
+  this.isAdmin = this.userNameService.isAdmin() ?? false;
+
+
+
    this.isLoge = this.userNameService.isLoge()?true:this.isLoge=false;
-   this.nombreUser=this.userNameService.getNombreUsuario()??'';
+
  }
  logout(): void {
   this.userNameService.logout();

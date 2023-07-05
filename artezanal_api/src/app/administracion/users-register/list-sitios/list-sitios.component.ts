@@ -71,10 +71,14 @@ export class ListSitiosComponent implements OnInit {
       logo: this.rutaForm.value.logo
     };
 
+    if(ruta.latitud && ruta.longitud && ruta.nombre && ruta.informacion ){
+
+
     // Llamar al servicio para insertar la ruta
     this.rutaService.insertarRuta(ruta).subscribe(
       () => {
         console.log('Datos insertados exitosamente');
+        window.location.reload();
         // Realizar acciones adicionales después de la inserción exitosa
       },
       (error) => {
@@ -82,5 +86,9 @@ export class ListSitiosComponent implements OnInit {
         // Manejar el error de inserción
       }
     );
+  }else{
+    alert('faltan campos');
   }
+}
+
 }

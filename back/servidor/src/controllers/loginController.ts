@@ -24,7 +24,8 @@ export const login = async (req: Request, res: Response) => {
     }
 
     // Generar un token de autenticación con los datos del usuario
-    const token = jwt.sign({ id: user.id, email: user.email }, 'secretKey');
+    const token = jwt.sign({ id: user.id, email: user.email, nombre: user.nombre }, 'secretKey');
+
 
     // Enviar el token como parte de la respuesta
     res.json({ token, user });

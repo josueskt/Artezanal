@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row bg-dark text-white">
   <div class="col-lg-6">
     <div class="container">
       <div class="formulario">
@@ -20,7 +20,8 @@
             <label for="informacionAdicional">Información adicional</label>
             <input type="text" class="form-control" id="informacionAdicional" [(ngModel)]="informacionAdicional" name="informacionAdicional" placeholder="Ingresa información adicional">
           </div>
-          <button type="submit" (click)="crear_ruta()" class="btn btn-primary">Submit</button>
+          <div class="text-white"> <button   type="submit" (click)="crear_ruta()" class="btn btn-primary">Submit</button></div>
+
         </form>
       </div>
     </div>
@@ -31,6 +32,7 @@
     <div class="container_sitios">
       <div class="all_sitios-container">
         <div class="all_sitios overflow-auto" style="max-height: 400px;">
+          <button routerLink="/crear-sitio" class="btn btn-warning">agregar sitio</button>
           <div *ngFor="let sitio of games" class="sitio-item row">
             <div class="sitio-nombre col-2">{{ sitio.nombre }}</div>
             <div class="sitio-botones col-2">

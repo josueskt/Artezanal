@@ -2,7 +2,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body>
+<body *ngIf="!nombreUser" >
 
 
   <div class="background"></div>
@@ -25,7 +25,7 @@
     </div>
     <div class="login-section ">
       <div class="form-box login">
-        <form (submit)="login()">
+        <form >
           <h2>Ingresar</h2>
           <div class="input-box">
             <span class="icon"><i class='bx bxs-envelope'></i></span>
@@ -43,9 +43,9 @@
             <label for=""><input type="checkbox">Recuerda</label>
             <a href="#">Olvidaste tu clave</a>
           </div>
-          <button class="btn" type="submit">Iniciar sesión</button>
+          <button class="btn" type="submit" (click)="login()">Iniciar sesión</button>
           <div class="create-account">
-            <p>Crear una cuenta nueva? <button class="btn btn-lg register-link">registrar</button></p>
+            <p>Crear una cuenta nueva? <button  class="btn btn-lg register-link">registrar</button></p>
           </div>
         </form>
       </div>
@@ -53,16 +53,11 @@
 
 
       <div class="form-box register">
-        <form (ngSubmit)="registerUser()">
+        <form >
 
           <h2>Registro</h2>
 
-          <!-- <div class="input-box">
-            <span class="icon"><i class='bx bxs-user'></i></span>
-            <input type="text" class="form-control" id="validationCustomUsername" [(ngModel)]="usuario.foto" name="foto"
-              required>
-            <label>Imagen</label>
-          </div> -->
+
           <div class="input-box">
             <span class="icon"><i class='bx bxs-user'></i></span>
             <input type="text" [(ngModel)]="usuario.apellido" name="apellido" required>
@@ -90,7 +85,7 @@
           <div class="remember-password">
             <label for=""><input type="checkbox" required>Acepto los términos y condiciones</label>
           </div>
-          <button class="btn" type="submit">Ingreso</button>
+          <button class="btn" type="submit" (click)="registerUser()">Ingreso</button>
 
           <div class="create-account">
             <p>Tienes una cuenta? <button class="login-link btn btn-outline-dark"> Ingresar</button></p>

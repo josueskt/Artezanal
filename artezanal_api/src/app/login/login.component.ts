@@ -22,15 +22,22 @@ export class LoginComponent implements OnInit {
   userNameService: any;
 
 
-  constructor(private userService: RegisterLoginService ,private router: Router , private authService: AuthenticationService ,private http: HttpClient) { }
+  constructor(private userService: RegisterLoginService, private router: Router, private authService: AuthenticationService, private http: HttpClient) { }
 
   formSubmitted: boolean = false;
 
 
 
-
+  nombreUser = null;
 
   ngOnInit() {
+
+    const a = this.userNameService.getNombreUsuario();
+    this.nombreUser = a
+    if (this.nombreUser) {
+      this.router.navigate(['/home'])
+    }
+
     const loginsec = document.querySelector('.login-section');
     const loginlink = document.querySelector('.login-link');
     const registerlink = document.querySelector('.register-link');
@@ -42,10 +49,10 @@ export class LoginComponent implements OnInit {
     loginlink.addEventListener('click', () => {
       loginsec.classList.remove('active');
     });
-   }
+  }
 
-   registerUser() {
-    if (!this.usuario.nombre || !this.usuario.apellido || !this.usuario.correo || !this.usuario.password) {
+  registerUser() {
+    if (!this.usuario.nombre && !this.usuario.apellido && !this.usuario.correo && !this.usuario.password) {
       alert("Por favor, complete todos los campos obligatorios.");
       this.registroError = true;
       return;
@@ -55,20 +62,27 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+
     this.userService.registerUser(this.usuario).subscribe(
       response => {
         // Registro exitoso
         this.registroExitoso = true;
         alert("Registro exitoso");
+
         this.registroError = false;
+        window.location.reload();
+
+
       },
       error => {
         // Error en el registro
         this.registroExitoso = false;
         alert("Usuario ya registrado");
+        window.location.reload();
         this.registroError = true;
       }
     );
+
   }
 
   login() {
@@ -97,10 +111,10 @@ export class LoginComponent implements OnInit {
 
 
           this.router.navigateByUrl('/home')
-      .then(() => {
-        // Recargar la página después de la redirección
-        window.location.reload();
-      });
+            .then(() => {
+              // Recargar la página después de la redirección
+              window.location.reload();
+            });
         } else {
           console.log("Respuesta inválida del servidor");
           // Error en la respuesta del servidor

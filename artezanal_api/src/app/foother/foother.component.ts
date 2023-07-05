@@ -8,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class FootherComponent implements OnInit {
   currentYear = new Date().getFullYear();
 
-  constructor() {}
-
-  ngOnInit() {
-    
+  constructor() {
+    // You can log something here if you want
+    console.log('Constructor called');
   }
 
+  ngOnInit() {
+    // Or you can log something here
+    console.log('Component initialized');
+  }
 }

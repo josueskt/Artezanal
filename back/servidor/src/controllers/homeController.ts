@@ -39,7 +39,16 @@ class HomeController {
         
     
     const ruta = await client.query('SELECT * FROM ruta.ruta where id_ruta = $1',[va]);
-    const result = await client.query('select s.latitude ,s.longitud ,s.logo , s.informacion ,s.nombre from ruta.sitios s  join ruta.detalle_ruta d_r on d_r.fk_sitios = s.id_siitos join ruta.ruta r  on d_r.fk_ruta = $1 ',[va]);
+    const result = await client.query(`select DISTINCT
+    s.latitude ,s.longitud ,s.logo , s.informacion ,s.nombre 
+  from 
+    ruta.sitios s 
+  right join 
+    ruta.detalle_ruta d_r 
+  on d_r.fk_sitios = s.id_siitos 
+  join 
+    ruta.ruta r  
+  on d_r.fk_ruta = $1`,[va]);
    
     res.json({ruta : ruta.rows,result : result.rows});
     } catch (err) {

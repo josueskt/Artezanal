@@ -42,24 +42,31 @@ export const create_rut = async (req: Request, res: Response) => {
   try {
     const { ruta, ar } = req.body;
     const { nombreRuta, precio, duracion, informacionAdicional } = ruta;
-    const rutas: number[] = ar;
 
-    const result = await client.query('INSERT INTO ruta.ruta (fk_lugar_encuentro , precio , nombre , duracion , inf_adi) VALUES ($1, $2, $3 ,$4 ,$5) RETURNING id_ruta;', [ar[0], precio, nombreRuta, duracion, informacionAdicional]);
 
-    const rutaId = result.rows[0].id_ruta;
+    const resu = await client.query('INSERT INTO ruta.ruta (fk_lugar_encuentro , precio , nombre , duracion , inf_adi) VALUES ($1, $2, $3 ,$4 ,$5) RETURNING id_ruta;', [ar[0], precio, nombreRuta, duracion, informacionAdicional]);
 
-    for (const i of rutas) {
-      console.log(i);
-      await client.query('INSERT INTO ruta.detalle_ruta (fk_ruta , fk_sitios) VALUES ($1, $2) ', [rutaId, i]);
+    const rutaId = resu.rows[0].id_ruta;
+    for await (let i of ar) {
+
+      const res = await client.query('select * from ruta.detalle_ruta where fk_ruta = $1 and fk_sitios = $2  ', [rutaId, i])
+
+      console.log(res.rows);
+      if (res.rows.length == 0) {
+        await client.query('INSERT INTO ruta.detalle_ruta (fk_ruta, fk_sitios)  VALUES ($1, $2)  ', [rutaId, i]);
+        console.log(i);
+      }
+
+
     }
 
-    await client.end();
+
   } catch (error) {
     console.error('Error al traer datos:', error);
   }
 };
 
-   
+
 
 
 

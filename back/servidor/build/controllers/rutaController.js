@@ -8,6 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __asyncValues = (this && this.__asyncValues) || function (o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -44,17 +51,32 @@ const getsites = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.getsites = getsites;
 const create_rut = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a, e_1, _b, _c;
     try {
         const { ruta, ar } = req.body;
         const { nombreRuta, precio, duracion, informacionAdicional } = ruta;
-        const rutas = ar;
-        const result = yield database_1.default.query('INSERT INTO ruta.ruta (fk_lugar_encuentro , precio , nombre , duracion , inf_adi) VALUES ($1, $2, $3 ,$4 ,$5) RETURNING id_ruta;', [ar[0], precio, nombreRuta, duracion, informacionAdicional]);
-        const rutaId = result.rows[0].id_ruta;
-        for (const i of rutas) {
-            console.log(i);
-            yield database_1.default.query('INSERT INTO ruta.detalle_ruta (fk_ruta , fk_sitios) VALUES ($1, $2) ', [rutaId, i]);
+        const resu = yield database_1.default.query('INSERT INTO ruta.ruta (fk_lugar_encuentro , precio , nombre , duracion , inf_adi) VALUES ($1, $2, $3 ,$4 ,$5) RETURNING id_ruta;', [ar[0], precio, nombreRuta, duracion, informacionAdicional]);
+        const rutaId = resu.rows[0].id_ruta;
+        try {
+            for (var _d = true, ar_1 = __asyncValues(ar), ar_1_1; ar_1_1 = yield ar_1.next(), _a = ar_1_1.done, !_a; _d = true) {
+                _c = ar_1_1.value;
+                _d = false;
+                let i = _c;
+                const res = yield database_1.default.query('select * from ruta.detalle_ruta where fk_ruta = $1 and fk_sitios = $2  ', [rutaId, i]);
+                console.log(res.rows);
+                if (res.rows.length == 0) {
+                    yield database_1.default.query('INSERT INTO ruta.detalle_ruta (fk_ruta, fk_sitios)  VALUES ($1, $2)  ', [rutaId, i]);
+                    console.log(i);
+                }
+            }
         }
-        yield database_1.default.end();
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (!_d && !_a && (_b = ar_1.return)) yield _b.call(ar_1);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
     }
     catch (error) {
         console.error('Error al traer datos:', error);

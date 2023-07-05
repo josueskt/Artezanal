@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./foother.component.css']
 })
 export class FootherComponent implements OnInit {
+  currentYear = new Date().getFullYear();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    
   }
 
 }

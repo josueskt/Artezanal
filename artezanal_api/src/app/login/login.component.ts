@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService: RegisterLoginService ,private router: Router , private authService: AuthenticationService ,private http: HttpClient) { }
 
+  formSubmitted: boolean = false;
 
 
 
@@ -43,32 +44,36 @@ export class LoginComponent implements OnInit {
     });
    }
 
-  registerUser() {
-    if (this.usuario.foto || this.usuario.nombre || this.usuario.apellido || this.usuario.correo || this.usuario.password) {
-      // Mostrar mensaje de error si falta algún campo obligatorio
+   registerUser() {
+    if (!this.usuario.nombre || !this.usuario.apellido || !this.usuario.correo || !this.usuario.password) {
+      alert("Por favor, complete todos los campos obligatorios.");
       this.registroError = true;
-
-
-
-      this.userService.registerUser(this.usuario).subscribe(
-        response => {
-          // Registro exitoso
-          this.registroExitoso = true;
-          this.registroError = false;
-        },
-        error => {
-          // Error en el registro
-          this.registroExitoso = false;
-          this.registroError = true;
-        }
-      );
-
-    }else{
-      this.registroError = true;
-      return ;
+      return;
     }
+
+    if (this.registroError) {
+      return;
+    }
+
+    this.userService.registerUser(this.usuario).subscribe(
+      response => {
+        // Registro exitoso
+        this.registroExitoso = true;
+        alert("Registro exitoso");
+        this.registroError = false;
+      },
+      error => {
+        // Error en el registro
+        this.registroExitoso = false;
+        alert("Usuario ya registrado");
+        this.registroError = true;
+      }
+    );
   }
+
   login() {
+    this.formSubmitted = true;
+
     this.authService.login(this.email, this.password).subscribe(
       (response: any) => {
         console.log(response);

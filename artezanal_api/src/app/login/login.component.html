@@ -31,12 +31,13 @@
             <span class="icon"><i class='bx bxs-envelope'></i></span>
             <input type="email" id="email" [(ngModel)]="email" name="email" required>
             <label>Email</label>
+            <span *ngIf="formSubmitted && !email" class="validation-error">¡Campo obligatorio!</span>
           </div>
           <div class="input-box">
             <span class="icon"><i class='bx bxs-lock-alt'></i></span>
             <input type="password" id="password" [(ngModel)]="password" name="password" required>
-
             <label>Clave</label>
+            <span *ngIf="formSubmitted && !password" class="validation-error">¡Campo obligatorio!</span>
           </div>
           <div class="remember-password">
             <label for=""><input type="checkbox">Recuerda</label>
@@ -44,58 +45,60 @@
           </div>
           <button class="btn" type="submit">Iniciar sesión</button>
           <div class="create-account">
-
-            <p>Crear una cuenta nueva? <button class=" btn btn-lg register-link">resgistrar</button></p>
+            <p>Crear una cuenta nueva? <button class="btn btn-lg register-link">registrar</button></p>
           </div>
         </form>
       </div>
 
-      <div class="form-box register ">
+
+
+      <div class="form-box register">
         <form (ngSubmit)="registerUser()">
 
-          <h2>Reguistro</h2>
+          <h2>Registro</h2>
 
-          <div class="input-box">
+          <!-- <div class="input-box">
             <span class="icon"><i class='bx bxs-user'></i></span>
             <input type="text" class="form-control" id="validationCustomUsername" [(ngModel)]="usuario.foto" name="foto"
               required>
-            <label>imagen</label>
-          </div>
+            <label>Imagen</label>
+          </div> -->
           <div class="input-box">
             <span class="icon"><i class='bx bxs-user'></i></span>
             <input type="text" [(ngModel)]="usuario.apellido" name="apellido" required>
             <label>Apellido</label>
+            <span *ngIf="formSubmitted && !usuario.apellido" class="validation-error">¡Campo obligatorio!</span>
           </div>
           <div class="input-box">
             <span class="icon"><i class='bx bxs-user'></i></span>
             <input type="text" [(ngModel)]="usuario.nombre" name="nombre" required>
             <label>Nombre</label>
+            <span *ngIf="formSubmitted && !usuario.nombre" class="validation-error">¡Campo obligatorio!</span>
           </div>
           <div class="input-box">
             <span class="icon"><i class='bx bxs-envelope'></i></span>
             <input type="email" [(ngModel)]="usuario.correo" name="correo" required>
             <label>Email</label>
+            <span *ngIf="formSubmitted && !usuario.correo" class="validation-error">¡Campo obligatorio!</span>
           </div>
           <div class="input-box">
             <span class="icon"><i class='bx bxs-lock-alt'></i></span>
             <input type="password" [(ngModel)]="usuario.password" name="password" required>
             <label>Clave</label>
+            <span *ngIf="formSubmitted && !usuario.password" class="validation-error">¡Campo obligatorio!</span>
           </div>
           <div class="remember-password">
-            <label for=""><input type="checkbox">Estoy de acuerdo con los terminos y condiciones</label>
+            <label for=""><input type="checkbox" required>Acepto los términos y condiciones</label>
           </div>
-          <button class="btn">Ingreso</button>
+          <button class="btn" type="submit">Ingreso</button>
 
           <div class="create-account">
-
             <p>Tienes una cuenta? <button class="login-link btn btn-outline-dark"> Ingresar</button></p>
           </div>
         </form>
-        <div *ngIf="registroExitoso" class="mensaje-exitoso">Usuario registrado exitosamente.</div>
 
-        <!-- Mostrar mensaje de error en el registro -->
-        <div *ngIf="registroError" class="mensaje-error">El usuario ya está registrado.</div>
       </div>
+
 
     </div>
 

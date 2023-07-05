@@ -60,29 +60,36 @@ export class AddRutasComponent implements OnInit {
 
 
   crear_ruta() {
-    if (this.nombreRuta, this.precio, this.duracion, this.informacionAdicional, this.sitios.length > 2) {
+    if (this.nombreRuta && this.precio && this.duracion && this.informacionAdicional && this.sitios.length > 2) {
       const ruta = {
         nombreRuta: this.nombreRuta,
         precio: this.precio,
         duracion: this.duracion,
         informacionAdicional: this.informacionAdicional
       };
-      const ar = this.sitios
+      const ar = this.sitios;
 
 
       this.crear_rut.enviarRuta( ruta, ar ).subscribe(
         (response) => {
           console.log('Ruta creada:', response);
-          this.nombreRuta = '';
-          this.precio = null;
-          this.duracion = '';
-          this.informacionAdicional = '';
+
         },
         (error) => {
           console.error('Error al crear la ruta:', error);
         }
       );
+      window.location.reload();
+      this.nombreRuta = '';
+      this.precio = null;
+      this.duracion = '';
+      this.informacionAdicional = '';
+
+
+
+
     }
+
 
   }
 

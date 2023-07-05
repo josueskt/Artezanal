@@ -46,11 +46,18 @@ exports.getsites = getsites;
 const create_rut = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { ruta, ar } = req.body;
-        res.json({ message: ruta, asd: ar });
+        const { nombreRuta, precio, duracion, informacionAdicional } = ruta;
+        const rutas = ar;
+        const result = yield database_1.default.query('INSERT INTO ruta.ruta (fk_lugar_encuentro , precio , nombre , duracion , inf_adi) VALUES ($1, $2, $3 ,$4 ,$5) RETURNING id_ruta;', [ar[0], precio, nombreRuta, duracion, informacionAdicional]);
+        const rutaId = result.rows[0].id_ruta;
+        for (const i of rutas) {
+            console.log(i);
+            yield database_1.default.query('INSERT INTO ruta.detalle_ruta (fk_ruta , fk_sitios) VALUES ($1, $2) ', [rutaId, i]);
+        }
+        yield database_1.default.end();
     }
     catch (error) {
         console.error('Error al traer datos:', error);
     }
-    ;
 });
 exports.create_rut = create_rut;

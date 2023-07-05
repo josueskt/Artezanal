@@ -12,15 +12,21 @@ export class NavBarComponent {
   id_user = null;
   iniciado: true;
   token = localStorage.getItem('token');
-
+  user: any;
   isLoge=true;
   nombreUser='';
  constructor(private userNameService: UserNameService) {
 
  }
-
+ isAdmin       = true;
  ngOnInit() {
+  this.isAdmin = this.userNameService.isAdmin() ?? false;
+  const token = localStorage.getItem('token');
+    const userData = localStorage.getItem('usurio');
 
+    if (token && userData) {
+      this.user = JSON.parse(userData);
+    }
    this.isLoge = this.userNameService.isLoge()?true:this.isLoge=false;
    this.nombreUser=this.userNameService.getNombreUsuario()??'';
  }

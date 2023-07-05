@@ -12,7 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
-
 import { HistoryReservasComponent } from './history-reservas/history-reservas.component';
 
 import { AddRutasComponent } from './administracion/users-register/add-rutas/add-rutas.component';
@@ -28,8 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
 import { RutaService } from './administracion/users-register/list-sitios/rutaService';
-
-
+import { FootherComponent } from './foother/foother.component';
 
 
 @NgModule({
@@ -38,19 +36,15 @@ import { RutaService } from './administracion/users-register/list-sitios/rutaSer
     NavBarComponent,
     HomeComponent,
     NosotrosComponent,
-LoginComponent,
+    LoginComponent,
     MapComponent,
-
-
     ListSitiosComponent,
     HistoryReservasComponent,
-
     UsersRegisterComponent,
     AddRutasComponent,
-
-
     QrComponent,
-    PerfilComponent
+    PerfilComponent,
+    FootherComponent
   ],
   imports: [
     BrowserModule,
@@ -59,11 +53,10 @@ LoginComponent,
     GoogleMapsModule,
     HttpClientModule,
     ReactiveFormsModule
-
-
   ],
   providers: [
-    CargaJsService,RutaService
+    CargaJsService,
+    RutaService
   ],
   bootstrap: [AppComponent],
   exports: [FormsModule]

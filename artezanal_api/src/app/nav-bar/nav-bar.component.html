@@ -32,7 +32,7 @@
 					</div>
 					<div *ngIf="iniciado ">
 						<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action text-white">
-              {{ nombreUser }}
+              <ul><li *ngIf="isAdmin"> {{ user.nombre }}</li></ul>
             </a>
 
 					<div class="dropdown-menu">

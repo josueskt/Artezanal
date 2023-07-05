@@ -6,7 +6,20 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UserNameService {
 
-
+  isAdmin(): boolean | null {
+    const token = this.getToken();
+    if (!token) {
+      return null;
+    }
+    const payload = token.split('.')[1];
+    const values = atob(payload);
+    const valuesJson = JSON.parse(values);
+    const roles = valuesJson?.roles;
+    if (roles && roles.indexOf('usuario') >= 0) {
+      return true;
+    }
+    return false;
+  }
   getNombreUsuario(): string | null {
     const token = this.getToken();
     if (!token) {

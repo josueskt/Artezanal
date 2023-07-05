@@ -19,3 +19,37 @@ export const insertarRuta = async (req: Request, res: Response) => {
     res.status(500).json({ message: 'Error en el servidor' });
   }
 };
+
+ 
+export const getsites =  async(req: Request, res: Response) =>{
+   try{
+
+  
+    const query = 'SELECT * FROM ruta.sitios'; // Reemplaza 'sitios' con el nombre de tu tabla
+    const result = await client.query(query);
+    
+
+    res.json(result.rows);
+  }catch(error){
+    console.error('Error al traer datos:', error);
+  };
+  
+  }
+
+
+  export const create_rut =  async(req: Request, res: Response) =>{
+    try{
+ 
+      const { ruta, ar } = req.body;
+      res.json({ message: ruta , asd:ar });
+ 
+    
+   }catch(error){
+     console.error('Error al traer datos:', error);
+   };
+   
+   }
+
+
+
+

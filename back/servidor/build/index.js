@@ -31,7 +31,7 @@ class Server {
         this.app.use('/boletos', generacion_boleroRoutes_1.default);
         this.app.use('/register', RegisterRoutes_1.default);
         this.app.use('/login', loginRoutes_1.default);
-        this.app.use('/crear_ruta', ruta_1.default);
+        this.app.use('/crear_sitio', ruta_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

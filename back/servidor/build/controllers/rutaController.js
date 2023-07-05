@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.insertarRuta = void 0;
+exports.create_rut = exports.getsites = exports.insertarRuta = void 0;
 const database_1 = __importDefault(require("../database")); // Importa la conexión a la base de datos
 const insertarRuta = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // Obtener los parámetros de la solicitud
@@ -31,3 +31,26 @@ const insertarRuta = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 exports.insertarRuta = insertarRuta;
+const getsites = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const query = 'SELECT * FROM ruta.sitios'; // Reemplaza 'sitios' con el nombre de tu tabla
+        const result = yield database_1.default.query(query);
+        res.json(result.rows);
+    }
+    catch (error) {
+        console.error('Error al traer datos:', error);
+    }
+    ;
+});
+exports.getsites = getsites;
+const create_rut = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { ruta, ar } = req.body;
+        res.json({ message: ruta, asd: ar });
+    }
+    catch (error) {
+        console.error('Error al traer datos:', error);
+    }
+    ;
+});
+exports.create_rut = create_rut;

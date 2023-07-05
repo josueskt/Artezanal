@@ -12,11 +12,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { ListRutasComponent } from './administracion/users-register/list-rutas/list-rutas.component';
+
 import { HistoryReservasComponent } from './history-reservas/history-reservas.component';
 
 import { AddRutasComponent } from './administracion/users-register/add-rutas/add-rutas.component';
-import { FacturaComponent } from './administracion/users-register/Factura/Factura.component';
+
 import { LoginComponent } from './login/login.component';
 
 import {ListSitiosComponent} from './administracion/users-register/list-sitios/list-sitios.component';
@@ -44,10 +44,10 @@ LoginComponent,
 
     ListSitiosComponent,
     HistoryReservasComponent,
-    FacturaComponent,
+
     UsersRegisterComponent,
     AddRutasComponent,
-    ListRutasComponent,
+
 
     QrComponent,
     PerfilComponent

@@ -37,7 +37,7 @@ this.app.use('/home',HomeRoute);
 this.app.use('/boletos',g_bolet);
 this.app.use('/register' , logi);
 this.app.use('/login', loge);
-this.app.use('/crear_ruta',crear_ruta );
+this.app.use('/crear_sitio',crear_ruta );
 
 
 

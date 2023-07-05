@@ -15,8 +15,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   usuario: Usuario = new Usuario(); // Objeto para almacenar los datos del usuario
-  registroExitoso: boolean = false; // Variable para controlar el estado del registro exitoso
-  registroError: boolean = false; // Variable para controlar el estado del registro con error
+  registroExitoso = false; // Variable para controlar el estado del registro exitoso
+  registroError = false; // Variable para controlar el estado del registro con error
   email: string;
   password: string;
   userNameService: any;

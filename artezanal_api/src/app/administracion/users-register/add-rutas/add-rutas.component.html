@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="container">
+      <div class="formulario">
+        <form>
+          <h1>crea una ruta</h1>
+          <div class="form-group">
+            <label for="nombreRuta">Nombre de la ruta</label>
+            <input type="text" class="form-control" id="nombreRuta" [(ngModel)]="nombreRuta" name="nombreRuta" placeholder="Escribe el nombre de la ruta">
+          </div>
+          <div class="form-group">
+            <label for="precio">Precio</label>
+            <input type="number" class="form-control" id="precio" [(ngModel)]="precio" name="precio" placeholder="Ingresa el precio">
+          </div>
+          <div class="form-group">
+            <label for="duracion">Duración</label>
+            <input type="text" class="form-control" id="duracion" [(ngModel)]="duracion" name="duracion" placeholder="Ingresa la duración">
+          </div>
+          <div class="form-group">
+            <label for="informacionAdicional">Información adicional</label>
+            <input type="text" class="form-control" id="informacionAdicional" [(ngModel)]="informacionAdicional" name="informacionAdicional" placeholder="Ingresa información adicional">
+          </div>
+          <button type="submit" (click)="crear_ruta()" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <h1 class="text-center">lista de sitios</h1>
+    <hr>
+    <div class="container_sitios">
+      <div class="all_sitios-container">
+        <div class="all_sitios overflow-auto" style="max-height: 400px;">
+          <div *ngFor="let sitio of games" class="sitio-item row">
+            <div class="sitio-nombre col-2">{{ sitio.nombre }}</div>
+            <div class="sitio-botones col-2">
+              <button class="btn btn-secondary" *ngIf="!sitio.agregado" (click)="agregar_sitio(sitio.id_siitos)">Agregar</button>
+              <button class="btn btn-danger" *ngIf="sitio.agregado" (click)="eliminar_sitio(sitio.id_siitos)">Eliminar</button>
+            </div>
+<hr>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -5,9 +5,9 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class Home_serviciosService {
+export class get_sites {
 
-api = 'http://localhost:3005/home'
+api = 'http://localhost:3005/crear_sitio/sitios'
 
 
 constructor( private http:HttpClient) {

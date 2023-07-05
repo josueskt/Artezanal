@@ -9,6 +9,6 @@ export class RutaService {
   constructor(private http: HttpClient) {}
 
   insertarRuta(ruta: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/crear_ruta`, ruta);
+    return this.http.post(`${this.apiUrl}/crear_sitio`, ruta);
   }
 }

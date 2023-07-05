@@ -9,16 +9,16 @@ import { MapComponent } from './usuario/geolocalisacion/map/map.component';
 
 import { ListSitiosComponent} from './administracion/users-register/list-sitios/list-sitios.component';
 import { HistoryReservasComponent } from './history-reservas/history-reservas.component';
-import { FacturaComponent } from './administracion/users-register/Factura/Factura.component';
+
 import { UsersRegisterComponent } from './administracion/users-register/users-register.component';
 import { AddRutasComponent } from './administracion/users-register/add-rutas/add-rutas.component';
-import { ListRutasComponent } from './administracion/users-register/list-rutas/list-rutas.component';
+
 
 import { QrComponent } from './usuario/Codificacion_qr/qr/qr.component';
 import { PerfilComponent } from './usuario/perfil/perfil.component';
 
 
-const token = localStorage.getItem('token');
+
 
 const routes : Routes = [
 
@@ -32,10 +32,10 @@ const routes : Routes = [
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
   {path: 'crear-sitio', component: ListSitiosComponent },
   {path: 'history-reservas', component: HistoryReservasComponent },
-  {path: 'Factura', component: FacturaComponent },
+
   {path: 'users-register', component: UsersRegisterComponent },
   {path: 'add-rutas', component: AddRutasComponent},
-  {path: 'list-rutas', component: ListRutasComponent},
+
 
   {path: 'perfil',component:PerfilComponent}
 ];
